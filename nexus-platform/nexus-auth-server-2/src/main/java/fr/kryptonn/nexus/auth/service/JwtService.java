@@ -6,8 +6,8 @@ import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
 import io.jsonwebtoken.*;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
@@ -23,6 +23,7 @@ import java.util.UUID;
 import java.util.function.Function;
 
 @Service
+@RequiredArgsConstructor
 @Slf4j
 public class JwtService {
 
@@ -33,8 +34,7 @@ public class JwtService {
     @Value("${app.jwt.audience:nexus-clients}")
     private String audience;
 
-    @Autowired
-    private JWKSource<SecurityContext> jwkSource;
+    private final JWKSource<SecurityContext> jwkSource;
 
     private static final Duration ACCESS_TOKEN_DURATION = Duration.ofMinutes(15);
     private static final Duration REFRESH_TOKEN_DURATION = Duration.ofDays(7);
