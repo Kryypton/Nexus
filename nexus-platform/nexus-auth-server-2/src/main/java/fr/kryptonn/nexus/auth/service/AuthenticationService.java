@@ -19,6 +19,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.ZoneId;
+import java.util.Date;
+
 /**
  * Service d'authentification refactorisé avec séparation claire des responsabilités
  * Utilise les services spécialisés pour JWT, refresh tokens et blacklist
@@ -213,7 +216,14 @@ public class AuthenticationService {
 
             // Vérifier si tous les tokens de l'utilisateur sont révoqués
             String userEmail = jwtService.extractEmail(token);
-            // TODO: Extraire issuedAt du token pour vérifier révocation globale
+            Date issuedAt = jwtService.extractIssuedAt(token);
+            User user = userService.findByEmail(userEmail);
+
+            if (user.getTokensRevokedAt() != null) {
+                if (issuedAt.toInstant().isBefore(user.getTokensRevokedAt().atZone(ZoneId.systemDefault()).toInstant())) {
+                    return false;
+                }
+            }
 
             return true;
 

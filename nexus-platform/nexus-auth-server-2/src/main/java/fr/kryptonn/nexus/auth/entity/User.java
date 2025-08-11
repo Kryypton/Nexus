@@ -75,6 +75,9 @@ public class User implements UserDetails {
     @Builder.Default
     private Boolean credentialsNonExpired = true;
 
+    @Column(name = "tokens_revoked_at")
+    private LocalDateTime tokensRevokedAt;
+
     @Override
     public String getUsername() {
         return email;
