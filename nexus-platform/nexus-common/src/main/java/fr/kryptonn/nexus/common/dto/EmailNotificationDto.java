@@ -1,5 +1,6 @@
 package fr.kryptonn.nexus.common.dto;
 
+import jakarta.validation.constraints.*;
 import lombok.Builder;
 import lombok.Data;
 
@@ -12,33 +13,29 @@ import java.util.Map;
 @Builder
 public class EmailNotificationDto {
 
+    @NotBlank(message = "L'email du destinataire est requis")
+    @Email(message = "L'email du destinataire doit être valide")
     private String recipientEmail;
+
     private String recipientName;
+
+    @NotNull(message = "L'importance est requise")
     private EmailImportance importance;
+
+    @Size(max = 32, message = "Le titre ne peut pas dépasser 32 caractères")
     private String title;
+
+    @Size(max = 320, message = "Le contenu ne peut pas dépasser 320 caractères")
     private String content;
+
     private String customIcon;
+
     private Map<String, String> buttons;
 
-    /**
-     * Valide les contraintes de taille
-     */
-    public void validate() {
-        if (title != null && title.length() > 32) {
-            throw new IllegalArgumentException("Le titre ne peut pas dépasser 32 caractères");
-        }
-
-        if (content != null && content.length() > 320) {
-            throw new IllegalArgumentException("Le contenu ne peut pas dépasser 320 caractères");
-        }
-
-        if (importance == EmailImportance.CUSTOM && (customIcon == null || customIcon.trim().isEmpty())) {
-            throw new IllegalArgumentException("Une icône personnalisée est requise pour le type CUSTOM");
-        }
-
-        if (recipientEmail == null || recipientEmail.trim().isEmpty()) {
-            throw new IllegalArgumentException("L'email du destinataire est requis");
-        }
+    @AssertTrue(message = "Une icône personnalisée est requise pour le type CUSTOM")
+    public boolean isCustomIconValid() {
+        return importance != EmailImportance.CUSTOM ||
+                (customIcon != null && !customIcon.trim().isEmpty());
     }
 
     /**
