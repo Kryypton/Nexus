@@ -1,0 +1,59 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: nexus-axon-app
+  profiles:
+    active: ${ACTIVE_PROFILE:local}
+
+  datasource:
+    url: jdbc:postgresql://${NEXUS_DB_HOST}:${NEXUS_DB_PORT}/${NEXUS_DB_NAME}
+    username: ${NEXUS_DB_USER}
+    password: ${NEXUS_DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          time_zone: UTC
+
+  # ✅ CORRECTION: Configuration OAuth2 Resource Server corrigée
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # ✅ Utiliser la même URL que le serveur d'auth
+          issuer-uri: ${NEXUS_AUTH_ISSUER_URI:http://localhost:9000}
+          # ✅ Optionnel: spécifier explicitement l'URL du JWK Set
+          jwk-set-uri: ${NEXUS_AUTH_ISSUER_URI:http://localhost:9000}/oauth2/jwks
+
+  websocket:
+    allowed-origins: ${NEXUS_WEBSOCKET_ORIGINS}
+
+  mail:
+    host: ${NEXUS_MAIL_HOST}
+    port: ${NEXUS_MAIL_PORT}
+    username: ${NEXUS_MAIL_USER}
+    password: ${NEXUS_MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+# ✅ Configuration de logging pour debug
+logging:
+  level:
+    fr.kryptonn.nexus.axon: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG
+    org.springframework.security.jwt: DEBUG

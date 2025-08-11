@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="email-base-layout (content)">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="height: 100vh;">
+    <tr>
+        <td align="center" style="">
+            <table role="presentation" style="height: 100%; max-width: 600px; background: linear-gradient(33deg, #01020A 0%, #181A36 25%, #181A36 75%, #01020A 100%); border-radius: 12px; overflow: hidden; box-shadow: 0 0 32px rgba(0,0,0,0.25);">
+                <div class="csv-grid-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; background-image: url('http://localhost:9000/images/hexagon.svg'); background-repeat: repeat; background-size: 55px 55px; background-position: center"></div>
+
+                <tr>
+                    <td align="center" style="padding: 16px">
+                        <div th:replace="email/fragment/email-header :: email-header"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 32px;">
+                        <th:block th:replace="${content}"></th:block>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="center" style="padding: 16px;">
+                        <div th:replace="email/fragment/email-footer :: email-footer"></div>
+                    </td>
+                </tr>
+
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

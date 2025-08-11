@@ -1,0 +1,18 @@
+discord:
+  commands:
+    sync-on-startup: false
+    delete-unknown: false
+
+logging:
+  level:
+    root: WARN
+    fr.kryptonn.nexus: INFO
+    org.springframework.security: WARN
+    net.dv8tion.jda: WARN
+    reactor: WARN
+
+# Configuration production
+nexus:
+  development:
+    mock-discord-responses: false
+    test-guild-only: false

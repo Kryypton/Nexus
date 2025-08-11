@@ -1,0 +1,21 @@
+meta {
+  name: Test Emails
+  type: http
+  seq: 11
+}
+
+post {
+  url: http://localhost:9000/test/email
+  body: multipartForm
+  auth: inherit
+}
+
+body:json {
+  {
+    "recipientEmail": "nathan.dorny59@gmail.com"
+  }
+}
+
+body:multipart-form {
+  recipientEmail: nathan.dorny59@gmail.com @contentType(String)
+}

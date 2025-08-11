@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="email-header">
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+        <tr>
+            <td align="center">
+                <a th:href="${baseUrl} ?: 'http://localhost:9000'" style="text-decoration: none; display: inline-block;">
+                    <!-- Container pour les deux logos côte à côte -->
+                    <div style="display: inline-flex; align-items: center; gap: 8px; filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.3));">
+                        <div style="height: 60px; width: auto; display: flex; align-items: center;">
+                            <img src="https://i.imgur.com/eF4nY9B.png" style="height: 100px; width: auto;"  alt="Logo Nexus épée"/>
+                        </div>
+
+                        <div style="height: 60px; width: auto; display: flex; align-items: center;">
+                            <img src="https://i.imgur.com/eF4nY9B.png" style="height: 120px; width: auto;" alt="Logo Nexus lettres"/>
+                        </div>
+                    </div>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

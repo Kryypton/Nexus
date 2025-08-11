@@ -1,0 +1,16 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        show_sql: false
+
+logging:
+  level:
+    root: WARN
+    fr.kryptonn.nexus: INFO
+    org.springframework.security: WARN
+    org.hibernate: WARN

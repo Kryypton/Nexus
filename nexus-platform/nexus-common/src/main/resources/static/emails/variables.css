@@ -1,0 +1,17 @@
+:root {
+    --primary-color-hex: #CFCFD1;
+    --secondary-color-hex: #686DBA;
+    --tertiary-color-one-hex: #181A36;
+    --quaternary-color-two-hex: #01020A;
+
+    --background-gradient: linear-gradient(
+            33deg,
+            var(--quaternary-color-two-hex) 0%,
+            var(--tertiary-color-one-hex) 25%,
+            var(--tertiary-color-one-hex) 75%,
+            var(--quaternary-color-two-hex) 100%
+    );
+
+    --linear-gradient-simple: linear-gradient(45deg, var(--tertiary-color-one-hex) 25%, var(--secondary-color-hex) 75%);
+
+}

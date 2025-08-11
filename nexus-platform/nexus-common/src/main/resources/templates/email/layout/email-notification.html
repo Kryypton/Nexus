@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="email/layout/email-base-layout :: email-base-layout(~{::content})">
+
+<body th:fragment="content">
+
+<!-- Carte d'information principale -->
+<div th:replace="email/fragment/email-info-card :: info-card(
+        ${iconName},
+        ${notificationTitle},
+        ${notificationContent}
+    )">
+</div>
+
+<!-- Section boutons (si présents) -->
+<div th:if="${buttons != null and !buttons.isEmpty()}" style="margin-top: 24px;">
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+        <tr>
+            <td align="center">
+                <table role="presentation" cellspacing="8" cellpadding="0" border="0">
+                    <tr>
+                        <th:block th:each="button : ${buttons}">
+                            <td>
+                                <a th:href="${button.value}"
+                                   th:text="${button.key}"
+                                   style="display: inline-block; padding: 14px 28px; background: linear-gradient(45deg, #686DBA, #CFCFD1); color: #181A36; text-decoration: none; border-radius: 8px; font-family: 'Lexend', Arial, sans-serif; font-size: 14px; font-weight: 500; text-transform: uppercase; box-shadow: 0 2px 4px rgba(0,0,0,0.2);"
+                                   target="_blank">
+                                    Bouton
+                                </a>
+                            </td>
+                        </th:block>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

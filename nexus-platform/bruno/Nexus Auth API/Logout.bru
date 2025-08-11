@@ -1,0 +1,15 @@
+meta {
+  name: Logout
+  type: http
+  seq: 5
+}
+
+post {
+  url: http://localhost:9000/auth/logout
+  body: none
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiaXNzIjoibmV4dXMtYXV0aC1zZXJ2ZXIiLCJhdWQiOlsibmV4dXMtY2xpZW50cyJdLCJpYXQiOjE3NTMxOTY3NjMsImV4cCI6MTc1MzE5NzY2MywidHlwZSI6ImFjY2VzcyIsImp0aSI6IjRjYTE0MGFkLTUyYTYtNGQ5YS05MTI1LTY2OGIyZWRlOTY5MSJ9.d2MAJOc4yxUATlneYL6c-uyGV-xz_poSHSGhipbTB_s
+}

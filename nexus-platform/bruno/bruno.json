@@ -1,0 +1,323 @@
+{
+  "version": "1",
+  "name": "Nexus Auth API",
+  "type": "collection",
+  "environments": {
+    "Local": {
+      "name": "Local",
+      "variables": {
+        "base_url": "http://localhost:9000",
+        "access_token": "",
+        "refresh_token": "",
+        "user_id": "",
+        "user_email": "test@example.com"
+      }
+    },
+    "Production": {
+      "name": "Production",
+      "variables": {
+        "base_url": "https://your-production-domain.com",
+        "access_token": "",
+        "refresh_token": "",
+        "user_id": "",
+        "user_email": ""
+      }
+    }
+  },
+  "folders": [
+    {
+      "name": "Authentication",
+      "requests": [
+        {
+          "name": "Health Check",
+          "method": "GET",
+          "url": "{{base_url}}/auth/health",
+          "headers": {},
+          "body": {},
+          "tests": "expect(res.status).to.equal(200);\nexpect(res.data.success).to.be.true;"
+        },
+        {
+          "name": "Register User",
+          "method": "POST",
+          "url": "{{base_url}}/auth/signup",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "mode": "json",
+            "json": {
+              "email": "{{user_email}}",
+              "password": "TestPassword123!",
+              "confirmPassword": "TestPassword123!"
+            }
+          },
+          "tests": "expect(res.status).to.equal(201);\nexpected(res.data.success).to.be.true;\nif (res.data.data && res.data.data.userId) {\n  bru.setEnvVar('user_id', res.data.data.userId);\n}"
+        },
+        {
+          "name": "Login User",
+          "method": "POST",
+          "url": "{{base_url}}/auth/login",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "mode": "json",
+            "json": {
+              "email": "{{user_email}}",
+              "password": "TestPassword123!"
+            }
+          },
+          "tests": "expect(res.status).to.equal(200);\nexpect(res.data.success).to.be.true;\nif (res.data.data) {\n  bru.setEnvVar('access_token', res.data.data.token);\n  bru.setEnvVar('refresh_token', res.data.data.refreshToken);\n  if (res.data.data.user) {\n    bru.setEnvVar('user_id', res.data.data.user.userId);\n  }\n}"
+        },
+        {
+          "name": "Get Current User",
+          "method": "GET",
+          "url": "{{base_url}}/auth/me",
+          "headers": {
+            "Authorization": "Bearer {{access_token}}"
+          },
+          "body": {},
+          "tests": "expect(res.status).to.equal(200);\nexpect(res.data.success).to.be.true;\nexpect(res.data.data.email).to.equal(bru.getEnvVar('user_email'));"
+        },
+        {
+          "name": "Get Current User Simple",
+          "method": "GET",
+          "url": "{{base_url}}/auth/me/simple",
+          "headers": {
+            "Authorization": "Bearer {{access_token}}"
+          },
+          "body": {},
+          "tests": "expect(res.status).to.equal(200);\nexpect(res.data.success).to.be.true;"
+        },
+        {
+          "name": "Validate Token",
+          "method": "POST",
+          "url": "{{base_url}}/auth/validate-token",
+          "headers": {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer {{access_token}}"
+          },
+          "body": {
+            "mode": "json",
+            "json": {
+              "token": "{{access_token}}"
+            }
+          },
+          "tests": "expect(res.status).to.equal(200);\nexpect(res.data.success).to.be.true;\nexpect(res.data.data.valid).to.be.true;"
+        },
+        {
+          "name": "Refresh Token",
+          "method": "POST",
+          "url": "{{base_url}}/auth/refresh",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "mode": "json",
+            "json": {
+              "refreshToken": "{{refresh_token}}"
+            }
+          },
+          "tests": "expect(res.status).to.equal(200);\nexpect(res.data.success).to.be.true;\nif (res.data.data) {\n  bru.setEnvVar('access_token', res.data.data.token);\n  bru.setEnvVar('refresh_token', res.data.data.refreshToken);\n}"
+        },
+        {
+          "name": "Get Auth Stats (Admin)",
+          "method": "GET",
+          "url": "{{base_url}}/auth/stats",
+          "headers": {
+            "Authorization": "Bearer {{access_token}}"
+          },
+          "body": {},
+          "tests": "// Note: nécessite le rôle ADMIN\nif (res.status === 200) {\n  expect(res.data.success).to.be.true;\n  expect(res.data.data).to.have.property('totalUsers');\n}"
+        },
+        {
+          "name": "Logout",
+          "method": "POST",
+          "url": "{{base_url}}/auth/logout",
+          "headers": {
+            "Authorization": "Bearer {{access_token}}"
+          },
+          "body": {},
+          "tests": "expect(res.status).to.equal(200);\nexpect(res.data.success).to.be.true;\n// Clear tokens après logout\nbru.setEnvVar('access_token', '');\nbru.setEnvVar('refresh_token', '');"
+        },
+        {
+          "name": "Logout All Devices",
+          "method": "POST",
+          "url": "{{base_url}}/auth/logout-all",
+          "headers": {
+            "Authorization": "Bearer {{access_token}}"
+          },
+          "body": {},
+          "tests": "expect(res.status).to.equal(200);\nexpect(res.data.success).to.be.true;\n// Clear tokens après logout global\nbru.setEnvVar('access_token', '');\nbru.setEnvVar('refresh_token', '');"
+        }
+      ]
+    },
+    {
+      "name": "User Management",
+      "requests": [
+        {
+          "name": "Get All Users (Admin)",
+          "method": "GET",
+          "url": "{{base_url}}/api/users",
+          "headers": {
+            "Authorization": "Bearer {{access_token}}"
+          },
+          "body": {},
+          "tests": "// Note: nécessite le rôle ADMIN\nif (res.status === 200) {\n  expect(Array.isArray(res.data)).to.be.true;\n}"
+        },
+        {
+          "name": "Get User by ID",
+          "method": "GET",
+          "url": "{{base_url}}/api/users/{{user_id}}",
+          "headers": {
+            "Authorization": "Bearer {{access_token}}"
+          },
+          "body": {},
+          "tests": "expect(res.status).to.equal(200);\nexpect(res.data.userId).to.equal(bru.getEnvVar('user_id'));"
+        },
+        {
+          "name": "Get User by Email",
+          "method": "GET",
+          "url": "{{base_url}}/api/users/by-email/{{user_email}}",
+          "headers": {
+            "Authorization": "Bearer {{access_token}}"
+          },
+          "body": {},
+          "tests": "expect(res.status).to.equal(200);\nexpect(res.data.email).to.equal(bru.getEnvVar('user_email'));"
+        },
+        {
+          "name": "Update User",
+          "method": "PUT",
+          "url": "{{base_url}}/api/users/{{user_id}}",
+          "headers": {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer {{access_token}}"
+          },
+          "body": {
+            "mode": "json",
+            "json": {
+              "email": "{{user_email}}"
+            }
+          },
+          "tests": "expect(res.status).to.equal(200);\nexpect(res.data.email).to.equal(bru.getEnvVar('user_email'));"
+        },
+        {
+          "name": "Change Password",
+          "method": "PATCH",
+          "url": "{{base_url}}/api/users/{{user_id}}/password",
+          "headers": {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer {{access_token}}"
+          },
+          "body": {
+            "mode": "json",
+            "json": {
+              "currentPassword": "TestPassword123!",
+              "newPassword": "NewTestPassword123!",
+              "confirmNewPassword": "NewTestPassword123!"
+            }
+          },
+          "tests": "expect(res.status).to.equal(200);\nexpect(res.data.email).to.equal(bru.getEnvVar('user_email'));"
+        },
+        {
+          "name": "Enable/Disable User (Admin)",
+          "method": "PATCH",
+          "url": "{{base_url}}/api/users/{{user_id}}/enabled?enabled=true",
+          "headers": {
+            "Authorization": "Bearer {{access_token}}"
+          },
+          "body": {},
+          "tests": "// Note: nécessite le rôle ADMIN\nif (res.status === 200) {\n  expect(res.data.enabled).to.be.true;\n}"
+        },
+        {
+          "name": "Delete User (Admin)",
+          "method": "DELETE",
+          "url": "{{base_url}}/api/users/{{user_id}}",
+          "headers": {
+            "Authorization": "Bearer {{access_token}}"
+          },
+          "body": {},
+          "tests": "// Note: nécessite le rôle ADMIN\n// Attention: cette requête supprime l'utilisateur!\nif (res.status === 204) {\n  console.log('Utilisateur supprimé avec succès');\n}"
+        }
+      ]
+    },
+    {
+      "name": "Error Cases",
+      "requests": [
+        {
+          "name": "Login with Invalid Credentials",
+          "method": "POST",
+          "url": "{{base_url}}/auth/login",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "mode": "json",
+            "json": {
+              "email": "wrong@example.com",
+              "password": "wrongpassword"
+            }
+          },
+          "tests": "expect(res.status).to.equal(401);\nexpect(res.data.success).to.be.false;"
+        },
+        {
+          "name": "Register with Invalid Email",
+          "method": "POST",
+          "url": "{{base_url}}/auth/signup",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "mode": "json",
+            "json": {
+              "email": "invalid-email",
+              "password": "TestPassword123!",
+              "confirmPassword": "TestPassword123!"
+            }
+          },
+          "tests": "expect(res.status).to.equal(400);\nexpect(res.data.success).to.be.false;"
+        },
+        {
+          "name": "Register with Weak Password",
+          "method": "POST",
+          "url": "{{base_url}}/auth/signup",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "mode": "json",
+            "json": {
+              "email": "test2@example.com",
+              "password": "weak",
+              "confirmPassword": "weak"
+            }
+          },
+          "tests": "expect(res.status).to.equal(400);\nexpect(res.data.success).to.be.false;"
+        },
+        {
+          "name": "Access Protected Endpoint Without Token",
+          "method": "GET",
+          "url": "{{base_url}}/auth/me",
+          "headers": {},
+          "body": {},
+          "tests": "expect(res.status).to.equal(401);"
+        },
+        {
+          "name": "Refresh with Invalid Token",
+          "method": "POST",
+          "url": "{{base_url}}/auth/refresh",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": {
+            "mode": "json",
+            "json": {
+              "refreshToken": "invalid.refresh.token"
+            }
+          },
+          "tests": "expect(res.status).to.equal(403);\nexpect(res.data.success).to.be.false;"
+        }
+      ]
+    }
+  ]
+}

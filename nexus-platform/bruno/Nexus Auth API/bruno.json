@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Nexus Auth API",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

@@ -1,0 +1,131 @@
+server:
+  port: 9000
+  servlet:
+    context-path: /
+
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    cache: false
+
+  application:
+    name: nexus-auth-server
+  profiles:
+    active: local
+
+  # Configuration base de données
+  datasource:
+    url: jdbc:postgresql://${NEXUS_DB_HOST}:${NEXUS_DB_PORT}/${NEXUS_DB_NAME}
+    username: ${NEXUS_DB_USER}
+    password: ${NEXUS_DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  # Configuration JPA/Hibernate
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        ddl-auto: update
+        jdbc:
+          time_zone: UTC
+          batch_size: 20
+        order_inserts: true
+        order_updates: true
+        generate_statistics: false
+
+  # Configuration Redis pour blacklist
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT}
+      password: ${REDIS_PASSWORD}
+      database: ${REDIS_DATABASE}
+      timeout: 2000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+          max-wait: -1ms
+
+  # Configuration OAuth2 Authorization Server
+  security:
+    oauth2:
+      authorizationserver:
+        client:
+          nexus-web-app:
+            registration:
+              client-id: nexus-web-app
+              client-secret: "{noop}${NEXUS_WEB_CLIENT_SECRET}"
+              client-name: Nexus Web App
+              client-authentication-methods:
+                - client_secret_basic
+              authorization-grant-types:
+                - authorization_code
+                - refresh_token
+              redirect-uris:
+                - ${NEXUS_WEB_REDIRECT_URI}
+              scopes:
+                - openid
+                - articles.read
+
+          nexus-synapse-bot:
+            registration:
+              client-id: nexus-synapse-bot
+              client-secret: ${NEXUS_SYNAPSE_CLIENT_SECRET}
+              client-authentication-methods:
+                - client_secret_basic
+              authorization-grant-types:
+                - client_credentials
+              scopes:
+                - bot:read
+                - bot:write
+
+        issuer: ${NEXUS_AUTH_ISSUER_URI}
+
+
+# Configuration JWT personnalisée
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+    issuer: ${JWT_ISSUER}
+    audience: ${JWT_AUDIENCE}
+    access-expiration-ms: ${JWT_ACCESS_EXPIRATION_MS} # 15 minutes
+    refresh-expiration-ms: ${JWT_REFRESH_EXPIRATION_MS} # 7 jours
+
+# Configuration Actuator pour monitoring
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: when_authorized
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+# Configuration logging par défaut
+logging:
+  level:
+    fr.kryptonn.nexus: INFO
+    org.springframework.security: WARN
+    org.hibernate: WARN
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/nexus-auth-server.log

@@ -1,0 +1,27 @@
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          time_zone: UTC
+
+  datasource:
+    url: jdbc:postgresql://${NEXUS_DB_HOST}:${NEXUS_DB_PORT}/${NEXUS_DB_NAME}
+    username: ${NEXUS_DB_USER}
+    password: ${NEXUS_DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000
+
+  jwt:
+    secret: ${JWT_SECRET}
+
+  oauth2:
+    auth-server:
+      host: ${NEXUS_AUTH_HOST}
+      port: ${NEXUS_AUTH_PORT}
+      issuer-uri: http://${nexus.oauth2.auth-server.host}:${nexus.oauth2.auth-server.port}

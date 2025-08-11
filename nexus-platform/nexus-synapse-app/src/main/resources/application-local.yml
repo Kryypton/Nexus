@@ -1,0 +1,21 @@
+discord:
+  commands:
+    sync-on-startup: true
+    delete-unknown: true
+
+logging:
+  level:
+    fr.kryptonn.nexus: DEBUG
+    org.springframework.security.oauth2: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.netty: DEBUG
+    net.dv8tion.jda: DEBUG
+    # Logs JDA pour debug Discord
+    net.dv8tion.jda.api.events: DEBUG
+    net.dv8tion.jda.internal.requests: DEBUG
+
+# Configuration spécifique développement
+nexus:
+  development:
+    mock-discord-responses: false
+    test-guild-only: true

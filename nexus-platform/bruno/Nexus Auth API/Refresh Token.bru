@@ -1,0 +1,17 @@
+meta {
+  name: Refresh Token
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:9000/auth/refresh
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "refreshToken": "7y2maHbkPsOHwZQOILijFNdVYAWdvMqyWDl3dnhK_L4"
+  }
+}

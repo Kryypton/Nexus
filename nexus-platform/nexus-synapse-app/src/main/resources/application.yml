@@ -1,0 +1,61 @@
+spring:
+  application:
+    name: nexus-synapse-app
+  profiles:
+    active: ${ACTIVE_PROFILE}
+
+  datasource:
+    url: jdbc:postgresql://${NEXUS_DB_HOST}:${NEXUS_DB_PORT}/${NEXUS_DB_NAME}
+    username: ${NEXUS_DB_USER}
+    password: ${NEXUS_DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000
+
+  security:
+    oauth2:
+      client:
+        registration:
+          nexus-axon:
+            client-id: nexus-synapse-bot
+            client-secret: ${NEXUS_SYNAPSE_CLIENT_SECRET}
+            authorization-grant-type: client_credentials
+            scope: bot:read,bot:write
+        provider:
+          nexus-axon:
+            token-uri: ${NEXUS_AUTH_ISSUER_URI}/oauth2/token
+
+# Configuration Discord Bot
+discord:
+  token: ${DISCORD_TOKEN}
+  application-id: ${DISCORD_APPLICATION_ID}
+  commands:
+    sync-on-startup: ${DISCORD_SYNC_COMMANDS_ON_STARTUP}
+    delete-unknown: ${DISCORD_DELETE_UNKNOWN_COMMANDS}
+
+  permissions:
+    admin-role-id: ${DISCORD_ADMIN_ROLE_ID}
+    officer-role-id: ${DISCORD_OFFICER_ROLE_ID}
+    member-role-id: ${DISCORD_MEMBER_ROLE_ID}
+
+# Configuration Nexus
+nexus:
+  guild:
+    id: ${NEXUS_GUILD_DISCORD_ID}
+
+  axon:
+    base-url: ${NEXUS_AXON_BASE_URL}
+    api-url: ${NEXUS_AXON_BASE_URL}/api
+
+  notification:
+    webhook-url: ${NEXUS_DISCORD_WEBHOOK_URL}
+    enabled: ${NEXUS_NOTIFICATION_ENABLED}
+
+  features:
+    member-management: ${NEXUS_FEATURE_MEMBER_MANAGEMENT}
+    event-management: ${NEXUS_FEATURE_EVENT_MANAGEMENT}
+    raid-management: ${NEXUS_FEATURE_RAID_MANAGEMENT}
+    absence-management: ${NEXUS_FEATURE_ABSENCE_MANAGEMENT}
+
