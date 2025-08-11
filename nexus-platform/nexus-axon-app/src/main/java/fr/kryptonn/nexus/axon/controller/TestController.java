@@ -29,7 +29,6 @@ public class TestController {
     @GetMapping("/public/health")
     public ResponseEntity<ApiResponse<Map<String, Object>>> publicHealth() {
         log.info("=== PUBLIC HEALTH ENDPOINT CALLED ===");
-        System.out.println("Public health endpoint called at " + LocalDateTime.now());
 
         Map<String, Object> data = new HashMap<>();
         data.put("status", "UP");
@@ -50,25 +49,21 @@ public class TestController {
             HttpServletRequest request) {
 
         log.info("=== PROTECTED USER-INFO ENDPOINT CALLED ===");
-        System.out.println("Protected user-info endpoint called at " + LocalDateTime.now());
 
         // Vérification immédiate de l'authentification
         if (authentication == null) {
             log.error("Authentication is null!");
-            System.out.println("ERROR: Authentication is null!");
             return ResponseEntity.status(401)
                     .body(ApiResponse.error("Authentication is null"));
         }
 
         if (!authentication.isAuthenticated()) {
             log.error("User is not authenticated!");
-            System.out.println("ERROR: User is not authenticated!");
             return ResponseEntity.status(401)
                     .body(ApiResponse.error("User is not authenticated"));
         }
 
         log.info("Authentication successful for user: {}", authentication.getName());
-        System.out.println("SUCCESS: User authenticated: " + authentication.getName());
 
         Map<String, Object> data = new HashMap<>();
         data.put("user", authentication.getName());
@@ -79,7 +74,6 @@ public class TestController {
         // Informations supplémentaires du JWT si disponibles
         if (authentication.getPrincipal() instanceof Jwt jwt) {
             log.info("JWT Principal detected");
-            System.out.println("JWT Principal detected");
 
             Map<String, Object> jwtInfo = new HashMap<>();
             jwtInfo.put("issuer", jwt.getIssuer() != null ? jwt.getIssuer().toString() : null);
@@ -94,7 +88,6 @@ public class TestController {
             log.debug("JWT Claims: {}", jwt.getClaims());
         } else {
             log.info("Principal type: {}", authentication.getPrincipal().getClass());
-            System.out.println("Principal type: " + authentication.getPrincipal().getClass());
         }
 
         // Log du header Authorization pour debug
@@ -117,7 +110,7 @@ public class TestController {
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ApiResponse<Map<String, Object>>> getSystemInfo(Authentication authentication) {
         log.info("=== ADMIN ENDPOINT CALLED ===");
-        System.out.println("Admin endpoint called by: " + authentication.getName());
+        log.info("Admin endpoint called by: {}", authentication.getName());
 
         Map<String, Object> data = new HashMap<>();
         data.put("user", authentication.getName());
@@ -139,7 +132,6 @@ public class TestController {
     @GetMapping("/protected/role-test")
     public ResponseEntity<ApiResponse<Map<String, Object>>> testRoles(Authentication authentication) {
         log.info("=== ROLE TEST ENDPOINT CALLED ===");
-        System.out.println("Role test endpoint called by: " + authentication.getName());
 
         Map<String, Object> data = new HashMap<>();
         data.put("user", authentication.getName());
