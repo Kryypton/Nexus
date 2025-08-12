@@ -47,4 +47,11 @@ public class EmailNotificationDto {
         }
         return importance.getDefaultIcon();
     }
+
+    public void validate() {
+        // Validation des boutons si l'importance est CUSTOM
+        if (importance == EmailImportance.CUSTOM && (buttons == null || buttons.isEmpty())) {
+            throw new IllegalArgumentException("Des boutons sont requis pour les notifications de type CUSTOM");
+        }
+    }
 }
