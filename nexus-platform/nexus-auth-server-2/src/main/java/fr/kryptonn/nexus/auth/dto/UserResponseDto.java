@@ -21,6 +21,8 @@ public class UserResponseDto {
     private LocalDateTime createdAt;
     private Set<String> authorities;
     private Boolean enabled;
+    private boolean discordLinked;
+    private boolean battleNetLinked;
 
     public static UserResponseDto fromUser(User user) {
         return UserResponseDto.builder()
@@ -28,6 +30,8 @@ public class UserResponseDto {
                 .email(user.getEmail())
                 .createdAt(user.getCreatedAt())
                 .enabled(user.getEnabled())
+                .discordLinked(user.getDiscordId() != null)
+                .battleNetLinked(user.getBattleNetId() != null)
                 .authorities(user.getAuthorities().stream()
                         .map(GrantedAuthority::getAuthority)
                         .collect(Collectors.toSet()))

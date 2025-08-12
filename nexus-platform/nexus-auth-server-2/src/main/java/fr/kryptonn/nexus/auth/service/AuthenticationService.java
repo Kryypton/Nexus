@@ -103,7 +103,8 @@ public class AuthenticationService {
     public TokenPair generateTokenPair(String email) {
         try {
             // Générer access token
-            String accessToken = jwtService.generateAccessToken(email);
+            User user = userService.findByEmail(email);
+            String accessToken = jwtService.generateAccessToken(user);
 
             // Générer refresh token (avec rotation automatique)
             RefreshToken refreshToken = refreshTokenService.generateRefreshToken(email);
@@ -135,7 +136,8 @@ public class AuthenticationService {
             String userEmail = existingRefreshToken.getUser().getEmail();
 
             // Générer nouveau access token
-            String newAccessToken = jwtService.generateAccessToken(userEmail);
+            User user = userService.findByEmail(userEmail);
+            String newAccessToken = jwtService.generateAccessToken(user);
 
             // Rotation du refresh token pour sécurité
             RefreshToken newRefreshToken = refreshTokenService.rotateRefreshToken(existingRefreshToken);

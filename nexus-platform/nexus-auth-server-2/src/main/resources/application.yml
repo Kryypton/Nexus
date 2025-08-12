@@ -104,6 +104,11 @@ app:
     access-expiration-ms: ${JWT_ACCESS_EXPIRATION_MS} # 15 minutes
     refresh-expiration-ms: ${JWT_REFRESH_EXPIRATION_MS} # 7 jours
 
+discord:
+  client-id: ${DISCORD_CLIENT_ID}
+  client-secret: ${DISCORD_CLIENT_SECRET}
+  token-uri: https://discord.com/api/oauth2/token
+
 # Configuration Actuator pour monitoring
 management:
   endpoints:
