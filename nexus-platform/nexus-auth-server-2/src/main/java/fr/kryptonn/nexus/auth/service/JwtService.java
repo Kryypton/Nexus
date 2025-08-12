@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import fr.kryptonn.nexus.auth.entity.User;
+
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.time.Duration;
@@ -39,29 +41,37 @@ public class JwtService {
     private static final Duration ACCESS_TOKEN_DURATION = Duration.ofMinutes(15);
     private static final Duration REFRESH_TOKEN_DURATION = Duration.ofDays(7);
 
-    public String generateAccessToken(String email) {
-        return generateToken(email, ACCESS_TOKEN_DURATION, "access");
+    public String generateAccessToken(User user) {
+        Map<String, Object> extra = new HashMap<>();
+        extra.put("discordLinked", user.getDiscordId() != null);
+        extra.put("battleNetLinked", user.getBattleNetId() != null);
+        if (user.getDiscordId() != null) {
+            extra.put("discordId", user.getDiscordId());
+        }
+        if (user.getBattleNetId() != null) {
+            extra.put("battleNetId", user.getBattleNetId());
+        }
+        return generateToken(user.getEmail(), ACCESS_TOKEN_DURATION, "access", extra);
     }
 
     public String generateRefreshToken(String email) {
-        return generateToken(email, REFRESH_TOKEN_DURATION, "refresh");
+        return generateToken(email, REFRESH_TOKEN_DURATION, "refresh", new HashMap<>());
     }
 
-    private String generateToken(String email, Duration duration, String tokenType) {
+    private String generateToken(String subject, Duration duration, String tokenType, Map<String, Object> extraClaims) {
         Instant now = Instant.now();
         String jti = UUID.randomUUID().toString();
-
-        Map<String, Object> claims = new HashMap<>();
+        Map<String, Object> claims = new HashMap<>(extraClaims);
         claims.put("type", tokenType);
         claims.put("jti", jti);
 
         try {
             RSAPrivateKey privateKey = getPrivateKey();
 
-            log.debug("Génération token {} pour {} avec issuer: {}", tokenType, email, issuer);
+            log.debug("Génération token {} pour {} avec issuer: {}", tokenType, subject, issuer);
 
             return Jwts.builder()
-                    .subject(email)
+                    .subject(subject)
                     .issuer(issuer) // ✅ Utilise l'URL complète
                     .audience().add(audience).and()
                     .issuedAt(Date.from(now))

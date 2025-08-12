@@ -54,6 +54,7 @@ public class SecurityConfig {
                         .requestMatchers("/.well-known/**", "/oauth2/jwks").permitAll()
                         .requestMatchers("/test/**").permitAll() //TODO: remove
                         .requestMatchers("/images/**", "/css/**", "/js/**", "/static/**").permitAll()
+                        .requestMatchers("/api/oauth/**").permitAll()
 
                         // Endpoints d'authentification
                         .requestMatchers("/auth/me/**", "/auth/logout/**").authenticated()

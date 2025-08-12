@@ -1,9 +1,12 @@
 package fr.kryptonn.nexus.auth.service;
 
 import fr.kryptonn.nexus.auth.dto.ChangePasswordDto;
+import fr.kryptonn.nexus.auth.dto.LinkBattleNetDto;
+import fr.kryptonn.nexus.auth.dto.LinkDiscordDto;
 import fr.kryptonn.nexus.auth.dto.UpdateUserDto;
 import fr.kryptonn.nexus.auth.dto.UserResponseDto;
 import fr.kryptonn.nexus.auth.entity.User;
+import fr.kryptonn.nexus.auth.entity.UserStatePhase;
 import fr.kryptonn.nexus.auth.exception.AuthenticationException;
 import fr.kryptonn.nexus.auth.exception.ResourceNotFoundException;
 import fr.kryptonn.nexus.auth.exception.UserAlreadyExistsException;
@@ -15,7 +18,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
+import java.time.LocalDateTime;
+import fr.kryptonn.nexus.auth.service.DiscordOAuthService;
+import fr.kryptonn.nexus.auth.service.BattleNetOAuthService;
 
 /**
  * Service utilisateur simplifié - Email comme seul identifiant
@@ -29,6 +36,8 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final DiscordOAuthService discordOAuthService;
+    private final BattleNetOAuthService battleNetOAuthService;
 
     /**
      * Trouve un utilisateur par email (identifiant principal)
@@ -219,5 +228,69 @@ public class UserService {
     @Transactional(readOnly = true)
     public long getActiveUserCount() {
         return userRepository.findAllEnabledUsers().size();
+    }
+
+    /**
+     * Lie un compte Discord à l'utilisateur.
+     */
+    public UserResponseDto linkDiscordAccount(Long id, LinkDiscordDto dto) {
+        User user = findById(id);
+        Map<String, Object> tokenResp = discordOAuthService.exchangeCode(dto.getCode(), dto.getRedirectUri());
+        if (tokenResp == null || tokenResp.get("access_token") == null) {
+            throw new AuthenticationException("Échec de la récupération des tokens Discord");
+        }
+
+        String accessToken = (String) tokenResp.get("access_token");
+        String refreshToken = (String) tokenResp.get("refresh_token");
+        Number expiresIn = (Number) tokenResp.get("expires_in");
+
+        String discordId = discordOAuthService.fetchUserId(accessToken);
+
+        user.setDiscordId(discordId);
+        user.setDiscordAccessToken(accessToken);
+        user.setDiscordRefreshToken(refreshToken);
+        if (expiresIn != null) {
+            user.setDiscordTokenExpiry(LocalDateTime.now().plusSeconds(expiresIn.longValue()));
+        }
+
+        // Mise à jour de la phase d'état
+        if (user.getStatePhase() == null || user.getStatePhase() == UserStatePhase.DISCORD_LINKING || user.getStatePhase() == UserStatePhase.EMAIL_VERIFICATION || user.getStatePhase() == UserStatePhase.INITIAL) {
+            user.setStatePhase(UserStatePhase.BATTLE_NET_LINKING);
+        }
+
+        User saved = save(user);
+        return UserResponseDto.fromUser(saved);
+    }
+
+    /**
+     * Lie un compte Battle.net à l'utilisateur.
+     */
+    public UserResponseDto linkBattleNetAccount(Long id, LinkBattleNetDto dto) {
+        User user = findById(id);
+        Map<String, Object> tokenResp = battleNetOAuthService.exchangeCode(dto.getCode(), dto.getRedirectUri());
+        if (tokenResp == null || tokenResp.get("access_token") == null) {
+            throw new AuthenticationException("Échec de la récupération des tokens Battle.net");
+        }
+
+        String accessToken = (String) tokenResp.get("access_token");
+        Number expiresIn = (Number) tokenResp.get("expires_in");
+
+        String battleNetId = battleNetOAuthService.fetchUserId(accessToken);
+
+        user.setBattleNetId(battleNetId);
+        user.setBattleNetAccessToken(accessToken);
+        if (expiresIn != null) {
+            user.setBattleNetTokenExpiry(LocalDateTime.now().plusSeconds(expiresIn.longValue()));
+        }
+
+        // Si le compte Discord est déjà lié, l'utilisateur est complet
+        if (user.getDiscordId() != null) {
+            user.setStatePhase(UserStatePhase.COMPLETED);
+        } else {
+            user.setStatePhase(UserStatePhase.DISCORD_LINKING);
+        }
+
+        User saved = save(user);
+        return UserResponseDto.fromUser(saved);
     }
 }
