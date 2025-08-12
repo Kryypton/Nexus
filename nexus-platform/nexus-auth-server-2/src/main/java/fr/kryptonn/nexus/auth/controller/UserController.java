@@ -1,6 +1,8 @@
 package fr.kryptonn.nexus.auth.controller;
 
 import fr.kryptonn.nexus.auth.dto.ChangePasswordDto;
+import fr.kryptonn.nexus.auth.dto.LinkBattleNetDto;
+import fr.kryptonn.nexus.auth.dto.LinkDiscordDto;
 import fr.kryptonn.nexus.auth.dto.UpdateUserDto;
 import fr.kryptonn.nexus.auth.dto.UserResponseDto;
 import fr.kryptonn.nexus.auth.service.UserService;
@@ -85,5 +87,23 @@ public class UserController {
         log.info("{} de l'utilisateur avec l'ID: {}", enabled ? "Activation" : "Désactivation", id);
         UserResponseDto updatedUser = userService.enableUser(id, enabled);
         return ResponseEntity.ok(updatedUser);
+    }
+
+    @PostMapping("/{id}/link/discord")
+    @PreAuthorize("hasRole('ADMIN') or authentication.principal.userId == #id")
+    public ResponseEntity<UserResponseDto> linkDiscord(
+            @PathVariable Long id,
+            @Valid @RequestBody LinkDiscordDto dto) {
+        log.info("Lien du compte Discord pour l'utilisateur {}", id);
+        return ResponseEntity.ok(userService.linkDiscordAccount(id, dto));
+    }
+
+    @PostMapping("/{id}/link/battlenet")
+    @PreAuthorize("hasRole('ADMIN') or authentication.principal.userId == #id")
+    public ResponseEntity<UserResponseDto> linkBattleNet(
+            @PathVariable Long id,
+            @Valid @RequestBody LinkBattleNetDto dto) {
+        log.info("Lien du compte Battle.net pour l'utilisateur {}", id);
+        return ResponseEntity.ok(userService.linkBattleNetAccount(id, dto));
     }
 }

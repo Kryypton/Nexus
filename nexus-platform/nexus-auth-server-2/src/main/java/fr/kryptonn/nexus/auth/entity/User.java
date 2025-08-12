@@ -78,6 +78,27 @@ public class User implements UserDetails {
     @Column(name = "tokens_revoked_at")
     private LocalDateTime tokensRevokedAt;
 
+    @Column(name = "discord_id")
+    private String discordId;
+
+    @Column(name = "discord_access_token")
+    private String discordAccessToken;
+
+    @Column(name = "discord_refresh_token")
+    private String discordRefreshToken;
+
+    @Column(name = "discord_token_expiry")
+    private LocalDateTime discordTokenExpiry;
+
+    @Column(name = "battlenet_id")
+    private String battleNetId;
+
+    @Column(name = "battlenet_access_token")
+    private String battleNetAccessToken;
+
+    @Column(name = "battlenet_token_expiry")
+    private LocalDateTime battleNetTokenExpiry;
+
     @Override
     public String getUsername() {
         return email;

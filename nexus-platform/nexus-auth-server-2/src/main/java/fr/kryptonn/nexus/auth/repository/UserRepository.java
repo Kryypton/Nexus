@@ -52,6 +52,12 @@ public interface UserRepository extends JpaRepository<User, Long> { // ✅ Chang
             "WHERE a.authority = :authority")
     List<User> findByAuthority(@Param("authority") String authority);
 
+    Optional<User> findByDiscordId(String discordId);
+
+    Optional<User> findByBattleNetId(String battleNetId);
+
+    List<User> findByDiscordRefreshTokenIsNotNull();
+
     /**
      * ✅ Remplacé la requête native par JPQL pour éviter les problèmes de requête de comptage
      * Trouve les utilisateurs créés récemment (dernières 24h)
