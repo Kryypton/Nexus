@@ -14,8 +14,10 @@ import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
+import org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationFilter;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfigurationSource;
+import fr.kryptonn.nexus.axon.filter.LinkedAccountFilter;
 
 import java.time.Duration;
 import java.util.Collection;
@@ -32,6 +34,7 @@ import java.util.Collection;
 public class SecurityConfig {
 
     private final CorsConfigurationSource corsConfigurationSource;
+    private final LinkedAccountFilter linkedAccountFilter;
 
     @Value("${spring.security.oauth2.resourceserver.jwt.issuer-uri}")
     private String issuerUri;
@@ -86,6 +89,8 @@ public class SecurityConfig {
                         // Tout le reste nécessite une authentification
                         .anyRequest().authenticated()
                 )
+
+                .addFilterAfter(linkedAccountFilter, BearerTokenAuthenticationFilter.class)
 
                 .build();
     }
