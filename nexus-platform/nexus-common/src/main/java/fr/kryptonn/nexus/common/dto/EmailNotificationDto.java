@@ -47,4 +47,10 @@ public class EmailNotificationDto {
         }
         return importance.getDefaultIcon();
     }
+
+    public void validate() {
+        if (importance == EmailImportance.CUSTOM && (customIcon == null || customIcon.trim().isEmpty())) {
+            throw new IllegalArgumentException("Une icône personnalisée est requise pour le type CUSTOM");
+        }
+    }
 }
