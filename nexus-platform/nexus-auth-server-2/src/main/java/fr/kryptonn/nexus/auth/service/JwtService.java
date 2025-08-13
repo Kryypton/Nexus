@@ -80,7 +80,7 @@ public class JwtService {
                     .signWith(privateKey, SignatureAlgorithm.RS256) // ✅ Force RS256 explicitement
                     .compact();
         } catch (Exception e) {
-            log.error("Erreur lors de la génération du token pour {}: {}", email, e.getMessage());
+            log.error("Erreur lors de la génération du token : {}", e.getMessage());
             throw new RuntimeException("Impossible de générer le token", e);
         }
     }
