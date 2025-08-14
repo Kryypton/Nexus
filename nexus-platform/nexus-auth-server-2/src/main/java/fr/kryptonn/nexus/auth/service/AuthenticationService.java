@@ -87,6 +87,7 @@ public class AuthenticationService {
             );
 
             User user = userService.findByEmail(input.getEmail());
+            user = userService.updatePhaseAfterLogin(user);
             log.info("Connexion réussie pour l'utilisateur: {}", user.getEmail());
 
             return user;
@@ -114,7 +115,7 @@ public class AuthenticationService {
             return TokenPair.builder()
                     .accessToken(accessToken)
                     .refreshToken(refreshToken.getToken())
-                    .accessTokenExpiresIn(jwtService.getAccessTokenExpirationMs())
+                    .accessTokenExpiresIn(jwtService.getAccessTokenExpirationMs(user))
                     .refreshTokenExpiresIn(refreshTokenService.getRefreshTokenExpirationMs())
                     .build();
 
@@ -147,7 +148,7 @@ public class AuthenticationService {
             return TokenPair.builder()
                     .accessToken(newAccessToken)
                     .refreshToken(newRefreshToken.getToken())
-                    .accessTokenExpiresIn(jwtService.getAccessTokenExpirationMs())
+                    .accessTokenExpiresIn(jwtService.getAccessTokenExpirationMs(user))
                     .refreshTokenExpiresIn(refreshTokenService.getRefreshTokenExpirationMs())
                     .build();
 

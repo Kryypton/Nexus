@@ -73,6 +73,26 @@ public class UserService {
     }
 
     /**
+     * Met à jour la phase de l'utilisateur en fonction des comptes liés
+     */
+    public User updatePhaseAfterLogin(User user) {
+        UserStatePhase target;
+        if (user.getDiscordId() != null && user.getBattleNetId() != null) {
+            target = UserStatePhase.COMPLETED;
+        } else if (user.getDiscordId() != null) {
+            target = UserStatePhase.BATTLE_NET_LINKING;
+        } else {
+            target = UserStatePhase.DISCORD_LINKING;
+        }
+
+        if (user.getStatePhase() != target) {
+            user.setStatePhase(target);
+            return save(user);
+        }
+        return user;
+    }
+
+    /**
      * Récupère tous les utilisateurs
      */
     @Transactional(readOnly = true)

@@ -18,6 +18,7 @@ import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.time.Duration;
 import java.time.Instant;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -51,7 +52,25 @@ public class JwtService {
         if (user.getBattleNetId() != null) {
             extra.put("battleNetId", user.getBattleNetId());
         }
-        return generateToken(user.getEmail(), ACCESS_TOKEN_DURATION, "access", extra);
+
+        Duration duration = resolveAccessTokenDuration(user);
+
+        return generateToken(user.getEmail(), duration, "access", extra);
+    }
+
+    private Duration resolveAccessTokenDuration(User user) {
+        if (user.getBattleNetTokenExpiry() != null) {
+            Instant now = Instant.now();
+            Instant expiry = user.getBattleNetTokenExpiry().atZone(ZoneId.systemDefault()).toInstant();
+            if (expiry.isAfter(now)) {
+                return Duration.between(now, expiry);
+            }
+        }
+        return ACCESS_TOKEN_DURATION;
+    }
+
+    public long getAccessTokenExpirationMs(User user) {
+        return resolveAccessTokenDuration(user).toMillis();
     }
 
     public String generateRefreshToken(String email) {

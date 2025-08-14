@@ -2,6 +2,7 @@ package fr.kryptonn.nexus.auth.dto;
 
 import fr.kryptonn.nexus.auth.entity.Authority;
 import fr.kryptonn.nexus.auth.entity.User;
+import fr.kryptonn.nexus.auth.entity.UserStatePhase;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
@@ -23,6 +24,7 @@ public class UserResponseDto {
     private Boolean enabled;
     private boolean discordLinked;
     private boolean battleNetLinked;
+    private UserStatePhase statePhase;
 
     public static UserResponseDto fromUser(User user) {
         return UserResponseDto.builder()
@@ -32,6 +34,7 @@ public class UserResponseDto {
                 .enabled(user.getEnabled())
                 .discordLinked(user.getDiscordId() != null)
                 .battleNetLinked(user.getBattleNetId() != null)
+                .statePhase(user.getStatePhase())
                 .authorities(user.getAuthorities().stream()
                         .map(GrantedAuthority::getAuthority)
                         .collect(Collectors.toSet()))
