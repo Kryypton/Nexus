@@ -85,7 +85,7 @@ public class DiscordOAuthService {
      */
     @Scheduled(fixedDelay = 300000) // Toutes les 5 minutes
     public void refreshDiscordTokens() {
-        List<User> users = userRepository.findByDiscordRefreshTokenIsNotNull();
+        List<User> users = userRepository.findByDiscordAccount_RefreshTokenIsNotNull();
         LocalDateTime now = LocalDateTime.now();
 
         for (User user : users) {
