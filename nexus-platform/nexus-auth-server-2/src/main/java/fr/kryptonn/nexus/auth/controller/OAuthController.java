@@ -31,7 +31,7 @@ public class OAuthController {
             HttpServletRequest request) {
         log.debug("Réception du callback Battle.net pour l'utilisateur {}", state);
         Long userId = Long.valueOf(state);
-        String redirectUri = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
+        String redirectUri = ServletUriComponentsBuilder.fromRequestUri(request).build().toUriString();
         userService.linkBattleNetAccount(userId, LinkBattleNetDto.builder()
                 .code(code)
                 .redirectUri(redirectUri)
@@ -49,7 +49,7 @@ public class OAuthController {
             HttpServletRequest request) {
         log.debug("Réception du callback Discord pour l'utilisateur {}", state);
         Long userId = Long.valueOf(state);
-        String redirectUri = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
+        String redirectUri = ServletUriComponentsBuilder.fromRequestUri(request).build().toUriString();
         userService.linkDiscordAccount(userId, LinkDiscordDto.builder()
                 .code(code)
                 .redirectUri(redirectUri)
