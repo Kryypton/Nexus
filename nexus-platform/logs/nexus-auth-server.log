@@ -1189,3 +1189,1260 @@ org.springframework.web.client.HttpClientErrorException$BadRequest: 400 Bad Requ
         users u1_0 
     where
         u1_0.discord_refresh_token is not null
+2025-08-14 03:05:32.982 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-14 03:05:32.990 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-08-14 03:05:33.050 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-14 03:05:33.055 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    set client_min_messages = WARNING
+2025-08-14 03:05:33.056 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    alter table if exists authorities 
+       drop constraint if exists FKk91upmbueyim93v469wj7b2qh
+2025-08-14 03:05:33.060 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    alter table if exists email_verification_tokens 
+       drop constraint if exists FKi1c4mmamlb8keqt74k4lrtwhc
+2025-08-14 03:05:33.062 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    alter table if exists refresh_tokens 
+       drop constraint if exists FK1lih5y2npsf8u5o3vhdb9y0os
+2025-08-14 03:05:33.066 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists authorities cascade
+2025-08-14 03:05:33.071 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists email_verification_tokens cascade
+2025-08-14 03:05:33.073 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists refresh_tokens cascade
+2025-08-14 03:05:33.076 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists revoked_tokens cascade
+2025-08-14 03:05:33.077 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists users cascade
+2025-08-14 03:05:33.089 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-08-14 03:05:33.092 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-08-14 03:05:39.874 [main] INFO  f.k.nexus.auth.NexusAuthApplication - Starting NexusAuthApplication using Java 21.0.8 with PID 99447 (/mnt/d/Users/Projets/nexus-platform/nexus-auth-server-2/target/classes started by nathan in /mnt/d/Users/Projets/nexus-platform)
+2025-08-14 03:05:39.877 [main] INFO  f.k.nexus.auth.NexusAuthApplication - The following 1 profile is active: "local"
+2025-08-14 03:05:42.175 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-14 03:05:42.175 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-14 03:05:42.707 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 502 ms. Found 5 JPA repository interfaces.
+2025-08-14 03:05:43.444 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-14 03:05:43.447 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-14 03:05:43.550 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface fr.kryptonn.nexus.auth.repository.AuthorityRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-08-14 03:05:43.550 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface fr.kryptonn.nexus.auth.repository.EmailVerificationTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-08-14 03:05:43.551 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface fr.kryptonn.nexus.auth.repository.RefreshTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-08-14 03:05:43.551 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface fr.kryptonn.nexus.auth.repository.RevokedTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-08-14 03:05:43.552 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface fr.kryptonn.nexus.auth.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-08-14 03:05:43.552 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 78 ms. Found 0 Redis repository interfaces.
+2025-08-14 03:05:45.036 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9000 (http)
+2025-08-14 03:05:45.061 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-14 03:05:45.062 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-08-14 03:05:45.181 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-14 03:05:45.182 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5188 ms
+2025-08-14 03:05:45.208 [main] INFO  f.k.nexus.auth.config.JwtConfig - === CONFIGURATION JWK SOURCE ===
+2025-08-14 03:05:45.208 [main] INFO  f.k.nexus.auth.config.JwtConfig - Génération d'une nouvelle paire de clés RSA...
+2025-08-14 03:05:45.423 [main] INFO  f.k.nexus.auth.config.JwtConfig - ✅ Paire de clés RSA générée avec succès
+2025-08-14 03:05:45.423 [main] INFO  f.k.nexus.auth.config.JwtConfig - Clé publique - Algorithme: RSA
+2025-08-14 03:05:45.427 [main] INFO  f.k.nexus.auth.config.JwtConfig - Clé privée - Algorithme: RSA
+2025-08-14 03:05:45.427 [main] INFO  f.k.nexus.auth.config.JwtConfig - Clé RSA générée - Algorithme: RSA, Format: X.509
+2025-08-14 03:05:45.427 [main] INFO  f.k.nexus.auth.config.JwtConfig - Taille de la clé: 2048 bits
+2025-08-14 03:05:45.449 [main] INFO  f.k.nexus.auth.config.JwtConfig - JWK Set créé avec 1 clé(s)
+2025-08-14 03:05:45.449 [main] INFO  f.k.nexus.auth.config.JwtConfig - ID de la clé: nexus-auth-key-1
+2025-08-14 03:05:45.449 [main] INFO  f.k.nexus.auth.config.JwtConfig - Algorithme: RS256
+2025-08-14 03:05:45.736 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-14 03:05:45.977 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.18.Final
+2025-08-14 03:05:46.107 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-14 03:05:47.096 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-14 03:05:47.212 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-14 03:05:47.618 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@33e4068
+2025-08-14 03:05:47.623 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-14 03:05:47.708 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-14 03:05:47.757 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.9
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-14 03:05:50.851 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-14 03:05:50.914 [main] DEBUG org.hibernate.SQL - 
+    set client_min_messages = WARNING
+2025-08-14 03:05:50.918 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists authorities 
+       drop constraint if exists FKk91upmbueyim93v469wj7b2qh
+2025-08-14 03:05:50.919 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists email_verification_tokens 
+       drop constraint if exists FKi1c4mmamlb8keqt74k4lrtwhc
+2025-08-14 03:05:50.920 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists refresh_tokens 
+       drop constraint if exists FK1lih5y2npsf8u5o3vhdb9y0os
+2025-08-14 03:05:50.920 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists authorities cascade
+2025-08-14 03:05:50.921 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists email_verification_tokens cascade
+2025-08-14 03:05:50.922 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists refresh_tokens cascade
+2025-08-14 03:05:50.922 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists revoked_tokens cascade
+2025-08-14 03:05:50.923 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists users cascade
+2025-08-14 03:05:50.936 [main] DEBUG org.hibernate.SQL - 
+    create table authorities (
+        user_id bigint not null,
+        authority varchar(50) not null,
+        id varchar(255) not null,
+        primary key (id)
+    )
+2025-08-14 03:05:50.942 [main] DEBUG org.hibernate.SQL - 
+    create table email_verification_tokens (
+        verified boolean not null,
+        created_at timestamp(6) with time zone not null,
+        expiry_date timestamp(6) with time zone not null,
+        user_id bigint not null,
+        verified_at timestamp(6) with time zone,
+        ip_address varchar(45),
+        user_email varchar(100) not null,
+        user_agent varchar(500),
+        id varchar(255) not null,
+        token varchar(255) not null unique,
+        primary key (id)
+    )
+2025-08-14 03:05:50.948 [main] DEBUG org.hibernate.SQL - 
+    create table refresh_tokens (
+        created_at timestamp(6) with time zone not null,
+        expiry_date timestamp(6) with time zone not null,
+        user_id bigint not null,
+        id varchar(255) not null,
+        token varchar(255) not null unique,
+        primary key (id)
+    )
+2025-08-14 03:05:50.953 [main] DEBUG org.hibernate.SQL - 
+    create table revoked_tokens (
+        expiry_date timestamp(6) not null,
+        revoked_at timestamp(6) not null,
+        token_hash varchar(64) not null unique,
+        id varchar(255) not null,
+        reason varchar(255),
+        user_email varchar(255) not null,
+        primary key (id)
+    )
+2025-08-14 03:05:50.958 [main] DEBUG org.hibernate.SQL - 
+    create table users (
+        account_non_expired boolean not null,
+        account_non_locked boolean not null,
+        credentials_non_expired boolean not null,
+        enabled boolean not null,
+        state_phase smallint not null check (state_phase between 0 and 4),
+        battlenet_token_expiry timestamp(6),
+        created_at timestamp(6),
+        discord_token_expiry timestamp(6),
+        tokens_revoked_at timestamp(6),
+        updated_at timestamp(6),
+        user_id bigint generated by default as identity,
+        email varchar(100) not null unique,
+        battlenet_access_token varchar(255),
+        battlenet_id varchar(255),
+        discord_access_token varchar(255),
+        discord_id varchar(255),
+        discord_refresh_token varchar(255),
+        password varchar(255) not null,
+        primary key (user_id)
+    )
+2025-08-14 03:05:50.966 [main] DEBUG org.hibernate.SQL - 
+    create index idx_authority_name 
+       on authorities (authority)
+2025-08-14 03:05:50.969 [main] DEBUG org.hibernate.SQL - 
+    create index idx_authority_user 
+       on authorities (user_id)
+2025-08-14 03:05:50.972 [main] DEBUG org.hibernate.SQL - 
+    create index idx_verification_token 
+       on email_verification_tokens (token)
+2025-08-14 03:05:50.974 [main] DEBUG org.hibernate.SQL - 
+    create index idx_user_email 
+       on email_verification_tokens (user_email)
+2025-08-14 03:05:50.977 [main] DEBUG org.hibernate.SQL - 
+    create index idx_expiry_date 
+       on email_verification_tokens (expiry_date)
+2025-08-14 03:05:50.979 [main] DEBUG org.hibernate.SQL - 
+    create index idx_verified 
+       on email_verification_tokens (verified)
+2025-08-14 03:05:50.982 [main] DEBUG org.hibernate.SQL - 
+    create index idx_refresh_token 
+       on refresh_tokens (token)
+2025-08-14 03:05:50.984 [main] DEBUG org.hibernate.SQL - 
+    create index idx_user_id 
+       on refresh_tokens (user_id)
+2025-08-14 03:05:50.987 [main] DEBUG org.hibernate.SQL - 
+    create index idx_expiry_date 
+       on refresh_tokens (expiry_date)
+2025-08-14 03:05:50.994 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "
+    create index idx_expiry_date 
+       on refresh_tokens (expiry_date)" via JDBC [ERROR: relation "idx_expiry_date" already exists]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    create index idx_expiry_date 
+       on refresh_tokens (expiry_date)" via JDBC [ERROR: relation "idx_expiry_date" already exists]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applySqlStrings(Helper.java:217)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createTableConstraints(SchemaCreatorImpl.java:392)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createSequencesTablesConstraints(SchemaCreatorImpl.java:358)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createFromMetadata(SchemaCreatorImpl.java:241)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:174)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:144)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:120)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:250)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:691)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1725)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1474)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1683)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:413)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1683)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:230)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:184)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:179)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:164)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:96)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:271)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:245)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4464)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:772)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:203)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:412)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:870)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:438)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:128)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:107)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:517)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:219)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:193)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:167)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at fr.kryptonn.nexus.auth.NexusAuthApplication.main(NexusAuthApplication.java:21)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "idx_expiry_date" already exists
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2734)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2421)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:372)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:518)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:435)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:357)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:342)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:318)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:313)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 132 common frames omitted
+2025-08-14 03:05:51.008 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists authorities 
+       add constraint FKk91upmbueyim93v469wj7b2qh 
+       foreign key (user_id) 
+       references users
+2025-08-14 03:05:51.010 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists email_verification_tokens 
+       add constraint FKi1c4mmamlb8keqt74k4lrtwhc 
+       foreign key (user_id) 
+       references users
+2025-08-14 03:05:51.012 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists refresh_tokens 
+       add constraint FK1lih5y2npsf8u5o3vhdb9y0os 
+       foreign key (user_id) 
+       references users
+2025-08-14 03:05:51.029 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-14 03:05:51.556 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-14 03:05:53.985 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-08-14 03:05:54.763 [main] INFO  f.k.nexus.auth.config.JwtConfig - Configuration du JwtEncoder avec JWKSource
+2025-08-14 03:05:54.801 [main] INFO  f.k.nexus.auth.config.JwtConfig - JwtEncoder configuré avec succès
+2025-08-14 03:05:54.817 [main] INFO  f.k.nexus.auth.config.JwtConfig - Configuration du TokenGenerator
+2025-08-14 03:05:54.827 [main] INFO  f.k.nexus.auth.config.JwtConfig - TokenGenerator configuré avec succès
+2025-08-14 03:05:54.897 [main] INFO  f.k.nexus.auth.config.JwtConfig - Configuration du JwtDecoder avec JWKSource
+2025-08-14 03:05:54.985 [main] INFO  f.k.nexus.auth.config.JwtConfig - JwtDecoder configuré avec succès
+2025-08-14 03:05:56.460 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9000 (http) with context path '/'
+2025-08-14 03:05:56.482 [main] INFO  f.k.nexus.auth.NexusAuthApplication - Started NexusAuthApplication in 18.148 seconds (process running for 21.323)
+2025-08-14 03:05:56.488 [main] INFO  f.k.nexus.auth.NexusAuthApplication - Nexus Auth Server started successfully.
+2025-08-14 03:05:57.438 [scheduling-1] DEBUG org.hibernate.SQL - 
+    /* DELETE 
+    FROM
+        RefreshToken rt 
+    WHERE
+        rt.expiryDate < :now */ delete 
+    from
+        refresh_tokens rt1_0 
+    where
+        rt1_0.expiry_date<?
+2025-08-14 03:05:57.447 [scheduling-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:TIMESTAMP_UTC) <- [2025-08-14T01:05:57.353322389Z]
+2025-08-14 03:05:57.539 [scheduling-1] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.account_non_expired,
+        u1_0.account_non_locked,
+        u1_0.battlenet_access_token,
+        u1_0.battlenet_id,
+        u1_0.battlenet_token_expiry,
+        u1_0.created_at,
+        u1_0.credentials_non_expired,
+        u1_0.discord_access_token,
+        u1_0.discord_id,
+        u1_0.discord_refresh_token,
+        u1_0.discord_token_expiry,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.state_phase,
+        u1_0.tokens_revoked_at,
+        u1_0.updated_at 
+    from
+        users u1_0 
+    where
+        u1_0.discord_refresh_token is not null
+2025-08-14 03:06:11.339 [http-nio-9000-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-14 03:06:11.340 [http-nio-9000-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-14 03:06:11.341 [http-nio-9000-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-08-14 03:06:11.759 [http-nio-9000-exec-1] INFO  f.k.n.auth.controller.AuthController - Tentative d'inscription pour l'email: test@example.com
+2025-08-14 03:06:11.760 [http-nio-9000-exec-1] INFO  f.k.n.a.s.AuthenticationService - Tentative d'inscription pour l'email: test@example.com
+2025-08-14 03:06:11.768 [http-nio-9000-exec-1] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    fetch
+        first ? rows only
+2025-08-14 03:06:11.768 [http-nio-9000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [test@example.com]
+2025-08-14 03:06:11.768 [http-nio-9000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2025-08-14 03:06:12.083 [http-nio-9000-exec-1] DEBUG org.hibernate.SQL - 
+    /* insert for
+        fr.kryptonn.nexus.auth.entity.User */insert 
+    into
+        users (account_non_expired, account_non_locked, battlenet_access_token, battlenet_id, battlenet_token_expiry, created_at, credentials_non_expired, discord_access_token, discord_id, discord_refresh_token, discord_token_expiry, email, enabled, password, state_phase, tokens_revoked_at, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-14 03:06:12.087 [http-nio-9000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BOOLEAN) <- [true]
+2025-08-14 03:06:12.087 [http-nio-9000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:BOOLEAN) <- [true]
+2025-08-14 03:06:12.088 [http-nio-9000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [null]
+2025-08-14 03:06:12.088 [http-nio-9000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:VARCHAR) <- [null]
+2025-08-14 03:06:12.088 [http-nio-9000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:TIMESTAMP) <- [null]
+2025-08-14 03:06:12.089 [http-nio-9000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:TIMESTAMP) <- [2025-08-14T03:06:12.061031]
+2025-08-14 03:06:12.089 [http-nio-9000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (7:BOOLEAN) <- [true]
+2025-08-14 03:06:12.089 [http-nio-9000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (8:VARCHAR) <- [null]
+2025-08-14 03:06:12.089 [http-nio-9000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (9:VARCHAR) <- [null]
+2025-08-14 03:06:12.089 [http-nio-9000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (10:VARCHAR) <- [null]
+2025-08-14 03:06:12.090 [http-nio-9000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (11:TIMESTAMP) <- [null]
+2025-08-14 03:06:12.090 [http-nio-9000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (12:VARCHAR) <- [test@example.com]
+2025-08-14 03:06:12.090 [http-nio-9000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (13:BOOLEAN) <- [true]
+2025-08-14 03:06:12.091 [http-nio-9000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (14:VARCHAR) <- [$2a$12$Hb0hGYSc/CHUunwuMTXnDecyZQutMk2jzN6TKQd.3iXtHAQQrCqv2]
+2025-08-14 03:06:12.091 [http-nio-9000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (15:TINYINT) <- [INITIAL]
+2025-08-14 03:06:12.091 [http-nio-9000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (16:TIMESTAMP) <- [null]
+2025-08-14 03:06:12.091 [http-nio-9000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (17:TIMESTAMP) <- [2025-08-14T03:06:12.061064]
+2025-08-14 03:06:12.137 [http-nio-9000-exec-1] INFO  f.k.n.a.s.AuthenticationService - Nouvel utilisateur créé avec l'email: test@example.com
+2025-08-14 03:06:12.160 [http-nio-9000-exec-1] DEBUG org.hibernate.SQL - 
+    /* insert for
+        fr.kryptonn.nexus.auth.entity.Authority */insert 
+    into
+        authorities (authority, user_id, id) 
+    values
+        (?, ?, ?)
+2025-08-14 03:06:12.160 [http-nio-9000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [ROLE_USER]
+2025-08-14 03:06:12.161 [http-nio-9000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:BIGINT) <- [1]
+2025-08-14 03:06:12.161 [http-nio-9000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [86019de0-7d4b-42d6-acf6-6b1475e71458]
+2025-08-14 03:06:12.181 [http-nio-9000-exec-1] INFO  f.k.n.auth.controller.AuthController - Inscription réussie pour l'utilisateur: test@example.com
+2025-08-14 03:06:14.255 [http-nio-9000-exec-2] INFO  f.k.n.auth.controller.AuthController - Tentative de connexion pour l'email: test@example.com
+2025-08-14 03:06:14.256 [http-nio-9000-exec-2] INFO  f.k.n.a.s.AuthenticationService - Tentative de connexion pour l'email: test@example.com
+2025-08-14 03:06:14.483 [http-nio-9000-exec-2] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.account_non_expired,
+        u1_0.account_non_locked,
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.authority,
+        u1_0.battlenet_access_token,
+        u1_0.battlenet_id,
+        u1_0.battlenet_token_expiry,
+        u1_0.created_at,
+        u1_0.credentials_non_expired,
+        u1_0.discord_access_token,
+        u1_0.discord_id,
+        u1_0.discord_refresh_token,
+        u1_0.discord_token_expiry,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.state_phase,
+        u1_0.tokens_revoked_at,
+        u1_0.updated_at 
+    from
+        users u1_0 
+    left join
+        authorities a1_0 
+            on u1_0.user_id=a1_0.user_id 
+    where
+        u1_0.email=?
+2025-08-14 03:06:14.484 [http-nio-9000-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [test@example.com]
+2025-08-14 03:06:14.699 [http-nio-9000-exec-2] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.account_non_expired,
+        u1_0.account_non_locked,
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.authority,
+        u1_0.battlenet_access_token,
+        u1_0.battlenet_id,
+        u1_0.battlenet_token_expiry,
+        u1_0.created_at,
+        u1_0.credentials_non_expired,
+        u1_0.discord_access_token,
+        u1_0.discord_id,
+        u1_0.discord_refresh_token,
+        u1_0.discord_token_expiry,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.state_phase,
+        u1_0.tokens_revoked_at,
+        u1_0.updated_at 
+    from
+        users u1_0 
+    left join
+        authorities a1_0 
+            on u1_0.user_id=a1_0.user_id 
+    where
+        u1_0.email=?
+2025-08-14 03:06:14.699 [http-nio-9000-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [test@example.com]
+2025-08-14 03:06:14.701 [http-nio-9000-exec-2] INFO  f.k.n.a.s.AuthenticationService - Connexion réussie pour l'utilisateur: test@example.com
+2025-08-14 03:06:14.703 [http-nio-9000-exec-2] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.account_non_expired,
+        u1_0.account_non_locked,
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.authority,
+        u1_0.battlenet_access_token,
+        u1_0.battlenet_id,
+        u1_0.battlenet_token_expiry,
+        u1_0.created_at,
+        u1_0.credentials_non_expired,
+        u1_0.discord_access_token,
+        u1_0.discord_id,
+        u1_0.discord_refresh_token,
+        u1_0.discord_token_expiry,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.state_phase,
+        u1_0.tokens_revoked_at,
+        u1_0.updated_at 
+    from
+        users u1_0 
+    left join
+        authorities a1_0 
+            on u1_0.user_id=a1_0.user_id 
+    where
+        u1_0.email=?
+2025-08-14 03:06:14.703 [http-nio-9000-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [test@example.com]
+2025-08-14 03:06:14.956 [http-nio-9000-exec-2] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.account_non_expired,
+        u1_0.account_non_locked,
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.authority,
+        u1_0.battlenet_access_token,
+        u1_0.battlenet_id,
+        u1_0.battlenet_token_expiry,
+        u1_0.created_at,
+        u1_0.credentials_non_expired,
+        u1_0.discord_access_token,
+        u1_0.discord_id,
+        u1_0.discord_refresh_token,
+        u1_0.discord_token_expiry,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.state_phase,
+        u1_0.tokens_revoked_at,
+        u1_0.updated_at 
+    from
+        users u1_0 
+    left join
+        authorities a1_0 
+            on u1_0.user_id=a1_0.user_id 
+    where
+        u1_0.email=?
+2025-08-14 03:06:14.957 [http-nio-9000-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [test@example.com]
+2025-08-14 03:06:14.965 [http-nio-9000-exec-2] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        rt1_0.id,
+        rt1_0.created_at,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        rt1_0.user_id 
+    from
+        refresh_tokens rt1_0 
+    where
+        rt1_0.user_id=?
+2025-08-14 03:06:14.966 [http-nio-9000-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-08-14 03:06:14.970 [http-nio-9000-exec-2] INFO  f.k.n.a.service.RefreshTokenService - Refresh token généré pour l'utilisateur: test@example.com
+2025-08-14 03:06:14.977 [http-nio-9000-exec-2] DEBUG org.hibernate.SQL - 
+    /* insert for
+        fr.kryptonn.nexus.auth.entity.RefreshToken */insert 
+    into
+        refresh_tokens (created_at, expiry_date, token, user_id, id) 
+    values
+        (?, ?, ?, ?, ?)
+2025-08-14 03:06:14.977 [http-nio-9000-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:TIMESTAMP_UTC) <- [2025-08-14T01:06:14.976998Z]
+2025-08-14 03:06:14.978 [http-nio-9000-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:TIMESTAMP_UTC) <- [2025-08-21T01:06:14.969592059Z]
+2025-08-14 03:06:14.978 [http-nio-9000-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [1fCDXdEoU4X06S73_Elk8_o_V8ZvzKD5M_jHrPep-VU]
+2025-08-14 03:06:14.978 [http-nio-9000-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:BIGINT) <- [1]
+2025-08-14 03:06:14.978 [http-nio-9000-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:VARCHAR) <- [fd9ef9e1-5287-46b7-b9d7-f35b6bcf7877]
+2025-08-14 03:06:14.985 [http-nio-9000-exec-2] INFO  f.k.n.auth.controller.AuthController - Connexion réussie pour l'utilisateur: test@example.com
+2025-08-14 03:06:23.214 [http-nio-9000-exec-4] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.account_non_expired,
+        u1_0.account_non_locked,
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.authority,
+        u1_0.battlenet_access_token,
+        u1_0.battlenet_id,
+        u1_0.battlenet_token_expiry,
+        u1_0.created_at,
+        u1_0.credentials_non_expired,
+        u1_0.discord_access_token,
+        u1_0.discord_id,
+        u1_0.discord_refresh_token,
+        u1_0.discord_token_expiry,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.state_phase,
+        u1_0.tokens_revoked_at,
+        u1_0.updated_at 
+    from
+        users u1_0 
+    left join
+        authorities a1_0 
+            on u1_0.user_id=a1_0.user_id 
+    where
+        u1_0.email=?
+2025-08-14 03:06:23.215 [http-nio-9000-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [test@example.com]
+2025-08-14 03:06:23.226 [http-nio-9000-exec-4] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.account_non_expired,
+        u1_0.account_non_locked,
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.authority,
+        u1_0.battlenet_access_token,
+        u1_0.battlenet_id,
+        u1_0.battlenet_token_expiry,
+        u1_0.created_at,
+        u1_0.credentials_non_expired,
+        u1_0.discord_access_token,
+        u1_0.discord_id,
+        u1_0.discord_refresh_token,
+        u1_0.discord_token_expiry,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.state_phase,
+        u1_0.tokens_revoked_at,
+        u1_0.updated_at 
+    from
+        users u1_0 
+    left join
+        authorities a1_0 
+            on u1_0.user_id=a1_0.user_id 
+    where
+        u1_0.email=?
+2025-08-14 03:06:23.226 [http-nio-9000-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [test@example.com]
+2025-08-14 03:06:37.154 [http-nio-9000-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.account_non_expired,
+        u1_0.account_non_locked,
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.authority,
+        u1_0.battlenet_access_token,
+        u1_0.battlenet_id,
+        u1_0.battlenet_token_expiry,
+        u1_0.created_at,
+        u1_0.credentials_non_expired,
+        u1_0.discord_access_token,
+        u1_0.discord_id,
+        u1_0.discord_refresh_token,
+        u1_0.discord_token_expiry,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.state_phase,
+        u1_0.tokens_revoked_at,
+        u1_0.updated_at 
+    from
+        users u1_0 
+    left join
+        authorities a1_0 
+            on u1_0.user_id=a1_0.user_id 
+    where
+        u1_0.user_id=?
+2025-08-14 03:06:37.155 [http-nio-9000-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-08-14 03:06:37.678 [http-nio-9000-exec-6] DEBUG org.hibernate.SQL - 
+    /* update
+        for fr.kryptonn.nexus.auth.entity.User */update users 
+    set
+        account_non_expired=?,
+        account_non_locked=?,
+        battlenet_access_token=?,
+        battlenet_id=?,
+        battlenet_token_expiry=?,
+        credentials_non_expired=?,
+        discord_access_token=?,
+        discord_id=?,
+        discord_refresh_token=?,
+        discord_token_expiry=?,
+        email=?,
+        enabled=?,
+        password=?,
+        state_phase=?,
+        tokens_revoked_at=?,
+        updated_at=? 
+    where
+        user_id=?
+2025-08-14 03:06:37.678 [http-nio-9000-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BOOLEAN) <- [true]
+2025-08-14 03:06:37.679 [http-nio-9000-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:BOOLEAN) <- [true]
+2025-08-14 03:06:37.679 [http-nio-9000-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [null]
+2025-08-14 03:06:37.679 [http-nio-9000-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:VARCHAR) <- [null]
+2025-08-14 03:06:37.680 [http-nio-9000-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:TIMESTAMP) <- [null]
+2025-08-14 03:06:37.680 [http-nio-9000-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:BOOLEAN) <- [true]
+2025-08-14 03:06:37.680 [http-nio-9000-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (7:VARCHAR) <- [MTM1MjY5OTg2MzkzNDE3NzM2MA.qS5uwjvFD06NReUo46kwTYtlShfeSl]
+2025-08-14 03:06:37.680 [http-nio-9000-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (8:VARCHAR) <- [360825447786872843]
+2025-08-14 03:06:37.680 [http-nio-9000-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (9:VARCHAR) <- [7SCMvEnTpkdKY1CefNDvgrSLxQlvrr]
+2025-08-14 03:06:37.681 [http-nio-9000-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (10:TIMESTAMP) <- [2025-08-21T03:06:37.668451753]
+2025-08-14 03:06:37.681 [http-nio-9000-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (11:VARCHAR) <- [test@example.com]
+2025-08-14 03:06:37.681 [http-nio-9000-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (12:BOOLEAN) <- [true]
+2025-08-14 03:06:37.681 [http-nio-9000-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (13:VARCHAR) <- [$2a$12$Hb0hGYSc/CHUunwuMTXnDecyZQutMk2jzN6TKQd.3iXtHAQQrCqv2]
+2025-08-14 03:06:37.681 [http-nio-9000-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (14:TINYINT) <- [BATTLE_NET_LINKING]
+2025-08-14 03:06:37.682 [http-nio-9000-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (15:TIMESTAMP) <- [null]
+2025-08-14 03:06:37.682 [http-nio-9000-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (16:TIMESTAMP) <- [2025-08-14T03:06:37.676230]
+2025-08-14 03:06:37.682 [http-nio-9000-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (17:BIGINT) <- [1]
+2025-08-14 03:10:57.597 [scheduling-1] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.account_non_expired,
+        u1_0.account_non_locked,
+        u1_0.battlenet_access_token,
+        u1_0.battlenet_id,
+        u1_0.battlenet_token_expiry,
+        u1_0.created_at,
+        u1_0.credentials_non_expired,
+        u1_0.discord_access_token,
+        u1_0.discord_id,
+        u1_0.discord_refresh_token,
+        u1_0.discord_token_expiry,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.state_phase,
+        u1_0.tokens_revoked_at,
+        u1_0.updated_at 
+    from
+        users u1_0 
+    where
+        u1_0.discord_refresh_token is not null
+2025-08-14 03:10:57.605 [scheduling-1] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.authority 
+    from
+        authorities a1_0 
+    where
+        a1_0.user_id=?
+2025-08-14 03:10:57.605 [scheduling-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-08-14 03:15:57.612 [scheduling-1] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.account_non_expired,
+        u1_0.account_non_locked,
+        u1_0.battlenet_access_token,
+        u1_0.battlenet_id,
+        u1_0.battlenet_token_expiry,
+        u1_0.created_at,
+        u1_0.credentials_non_expired,
+        u1_0.discord_access_token,
+        u1_0.discord_id,
+        u1_0.discord_refresh_token,
+        u1_0.discord_token_expiry,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.state_phase,
+        u1_0.tokens_revoked_at,
+        u1_0.updated_at 
+    from
+        users u1_0 
+    where
+        u1_0.discord_refresh_token is not null
+2025-08-14 03:15:57.616 [scheduling-1] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.authority 
+    from
+        authorities a1_0 
+    where
+        a1_0.user_id=?
+2025-08-14 03:15:57.616 [scheduling-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-08-14 03:20:57.619 [scheduling-1] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.account_non_expired,
+        u1_0.account_non_locked,
+        u1_0.battlenet_access_token,
+        u1_0.battlenet_id,
+        u1_0.battlenet_token_expiry,
+        u1_0.created_at,
+        u1_0.credentials_non_expired,
+        u1_0.discord_access_token,
+        u1_0.discord_id,
+        u1_0.discord_refresh_token,
+        u1_0.discord_token_expiry,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.state_phase,
+        u1_0.tokens_revoked_at,
+        u1_0.updated_at 
+    from
+        users u1_0 
+    where
+        u1_0.discord_refresh_token is not null
+2025-08-14 03:20:57.621 [scheduling-1] DEBUG org.hibernate.SQL - 
+    select
+        a1_0.user_id,
+        a1_0.id,
+        a1_0.authority 
+    from
+        authorities a1_0 
+    where
+        a1_0.user_id=?
+2025-08-14 03:20:57.622 [scheduling-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2025-08-14 03:21:01.251 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-14 03:21:01.253 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-08-14 03:21:01.286 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-14 03:21:01.289 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    set client_min_messages = WARNING
+2025-08-14 03:21:01.290 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    alter table if exists authorities 
+       drop constraint if exists FKk91upmbueyim93v469wj7b2qh
+2025-08-14 03:21:01.292 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    alter table if exists email_verification_tokens 
+       drop constraint if exists FKi1c4mmamlb8keqt74k4lrtwhc
+2025-08-14 03:21:01.293 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    alter table if exists refresh_tokens 
+       drop constraint if exists FK1lih5y2npsf8u5o3vhdb9y0os
+2025-08-14 03:21:01.294 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists authorities cascade
+2025-08-14 03:21:01.296 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists email_verification_tokens cascade
+2025-08-14 03:21:01.297 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists refresh_tokens cascade
+2025-08-14 03:21:01.298 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists revoked_tokens cascade
+2025-08-14 03:21:01.300 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists users cascade
+2025-08-14 03:21:01.304 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-08-14 03:21:01.306 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-08-14 03:21:06.439 [main] INFO  f.k.nexus.auth.NexusAuthApplication - Starting NexusAuthApplication using Java 21.0.8 with PID 101889 (/mnt/d/Users/Projets/nexus-platform/nexus-auth-server-2/target/classes started by nathan in /mnt/d/Users/Projets/nexus-platform)
+2025-08-14 03:21:06.441 [main] INFO  f.k.nexus.auth.NexusAuthApplication - The following 1 profile is active: "local"
+2025-08-14 03:21:08.659 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-14 03:21:08.659 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-14 03:21:09.130 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 442 ms. Found 5 JPA repository interfaces.
+2025-08-14 03:21:09.762 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-08-14 03:21:09.764 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-08-14 03:21:09.854 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface fr.kryptonn.nexus.auth.repository.AuthorityRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-08-14 03:21:09.854 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface fr.kryptonn.nexus.auth.repository.EmailVerificationTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-08-14 03:21:09.855 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface fr.kryptonn.nexus.auth.repository.RefreshTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-08-14 03:21:09.855 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface fr.kryptonn.nexus.auth.repository.RevokedTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-08-14 03:21:09.856 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface fr.kryptonn.nexus.auth.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-08-14 03:21:09.856 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 73 ms. Found 0 Redis repository interfaces.
+2025-08-14 03:21:11.310 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9000 (http)
+2025-08-14 03:21:11.334 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-14 03:21:11.334 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-08-14 03:21:11.445 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-14 03:21:11.445 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4886 ms
+2025-08-14 03:21:11.471 [main] INFO  f.k.nexus.auth.config.JwtConfig - === CONFIGURATION JWK SOURCE ===
+2025-08-14 03:21:11.471 [main] INFO  f.k.nexus.auth.config.JwtConfig - Génération d'une nouvelle paire de clés RSA...
+2025-08-14 03:21:11.901 [main] INFO  f.k.nexus.auth.config.JwtConfig - ✅ Paire de clés RSA générée avec succès
+2025-08-14 03:21:11.902 [main] INFO  f.k.nexus.auth.config.JwtConfig - Clé publique - Algorithme: RSA
+2025-08-14 03:21:11.906 [main] INFO  f.k.nexus.auth.config.JwtConfig - Clé privée - Algorithme: RSA
+2025-08-14 03:21:11.906 [main] INFO  f.k.nexus.auth.config.JwtConfig - Clé RSA générée - Algorithme: RSA, Format: X.509
+2025-08-14 03:21:11.906 [main] INFO  f.k.nexus.auth.config.JwtConfig - Taille de la clé: 2048 bits
+2025-08-14 03:21:11.927 [main] INFO  f.k.nexus.auth.config.JwtConfig - JWK Set créé avec 1 clé(s)
+2025-08-14 03:21:11.928 [main] INFO  f.k.nexus.auth.config.JwtConfig - ID de la clé: nexus-auth-key-1
+2025-08-14 03:21:11.928 [main] INFO  f.k.nexus.auth.config.JwtConfig - Algorithme: RS256
+2025-08-14 03:21:12.212 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-14 03:21:12.419 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.18.Final
+2025-08-14 03:21:12.545 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-14 03:21:13.466 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-14 03:21:13.570 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-14 03:21:13.912 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1df32c09
+2025-08-14 03:21:13.915 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-14 03:21:13.981 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-14 03:21:14.028 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.9
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-14 03:21:16.955 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-14 03:21:17.006 [main] DEBUG org.hibernate.SQL - 
+    set client_min_messages = WARNING
+2025-08-14 03:21:17.009 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists authorities 
+       drop constraint if exists FKk91upmbueyim93v469wj7b2qh
+2025-08-14 03:21:17.010 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists email_verification_tokens 
+       drop constraint if exists FKi1c4mmamlb8keqt74k4lrtwhc
+2025-08-14 03:21:17.011 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists refresh_tokens 
+       drop constraint if exists FK1lih5y2npsf8u5o3vhdb9y0os
+2025-08-14 03:21:17.012 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists authorities cascade
+2025-08-14 03:21:17.012 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists email_verification_tokens cascade
+2025-08-14 03:21:17.013 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists refresh_tokens cascade
+2025-08-14 03:21:17.013 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists revoked_tokens cascade
+2025-08-14 03:21:17.013 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists users cascade
+2025-08-14 03:21:17.023 [main] DEBUG org.hibernate.SQL - 
+    create table authorities (
+        user_id bigint not null,
+        authority varchar(50) not null,
+        id varchar(255) not null,
+        primary key (id)
+    )
+2025-08-14 03:21:17.027 [main] DEBUG org.hibernate.SQL - 
+    create table email_verification_tokens (
+        verified boolean not null,
+        created_at timestamp(6) with time zone not null,
+        expiry_date timestamp(6) with time zone not null,
+        user_id bigint not null,
+        verified_at timestamp(6) with time zone,
+        ip_address varchar(45),
+        user_email varchar(100) not null,
+        user_agent varchar(500),
+        id varchar(255) not null,
+        token varchar(255) not null unique,
+        primary key (id)
+    )
+2025-08-14 03:21:17.032 [main] DEBUG org.hibernate.SQL - 
+    create table refresh_tokens (
+        created_at timestamp(6) with time zone not null,
+        expiry_date timestamp(6) with time zone not null,
+        user_id bigint not null,
+        id varchar(255) not null,
+        token varchar(255) not null unique,
+        primary key (id)
+    )
+2025-08-14 03:21:17.036 [main] DEBUG org.hibernate.SQL - 
+    create table revoked_tokens (
+        expiry_date timestamp(6) not null,
+        revoked_at timestamp(6) not null,
+        token_hash varchar(64) not null unique,
+        id varchar(255) not null,
+        reason varchar(255),
+        user_email varchar(255) not null,
+        primary key (id)
+    )
+2025-08-14 03:21:17.041 [main] DEBUG org.hibernate.SQL - 
+    create table users (
+        account_non_expired boolean not null,
+        account_non_locked boolean not null,
+        credentials_non_expired boolean not null,
+        enabled boolean not null,
+        state_phase smallint not null check (state_phase between 0 and 4),
+        battlenet_token_expiry timestamp(6),
+        created_at timestamp(6),
+        discord_token_expiry timestamp(6),
+        tokens_revoked_at timestamp(6),
+        updated_at timestamp(6),
+        user_id bigint generated by default as identity,
+        email varchar(100) not null unique,
+        battlenet_access_token varchar(255),
+        battlenet_id varchar(255),
+        discord_access_token varchar(255),
+        discord_id varchar(255),
+        discord_refresh_token varchar(255),
+        password varchar(255) not null,
+        primary key (user_id)
+    )
+2025-08-14 03:21:17.046 [main] DEBUG org.hibernate.SQL - 
+    create index idx_authority_name 
+       on authorities (authority)
+2025-08-14 03:21:17.048 [main] DEBUG org.hibernate.SQL - 
+    create index idx_authority_user 
+       on authorities (user_id)
+2025-08-14 03:21:17.050 [main] DEBUG org.hibernate.SQL - 
+    create index idx_verification_token 
+       on email_verification_tokens (token)
+2025-08-14 03:21:17.052 [main] DEBUG org.hibernate.SQL - 
+    create index idx_user_email 
+       on email_verification_tokens (user_email)
+2025-08-14 03:21:17.054 [main] DEBUG org.hibernate.SQL - 
+    create index idx_expiry_date 
+       on email_verification_tokens (expiry_date)
+2025-08-14 03:21:17.056 [main] DEBUG org.hibernate.SQL - 
+    create index idx_verified 
+       on email_verification_tokens (verified)
+2025-08-14 03:21:17.058 [main] DEBUG org.hibernate.SQL - 
+    create index idx_refresh_token 
+       on refresh_tokens (token)
+2025-08-14 03:21:17.060 [main] DEBUG org.hibernate.SQL - 
+    create index idx_user_id 
+       on refresh_tokens (user_id)
+2025-08-14 03:21:17.062 [main] DEBUG org.hibernate.SQL - 
+    create index idx_expiry_date 
+       on refresh_tokens (expiry_date)
+2025-08-14 03:21:17.067 [main] WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl - GenerationTarget encountered exception accepting command : Error executing DDL "
+    create index idx_expiry_date 
+       on refresh_tokens (expiry_date)" via JDBC [ERROR: relation "idx_expiry_date" already exists]
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    create index idx_expiry_date 
+       on refresh_tokens (expiry_date)" via JDBC [ERROR: relation "idx_expiry_date" already exists]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applySqlStrings(Helper.java:217)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createTableConstraints(SchemaCreatorImpl.java:392)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createSequencesTablesConstraints(SchemaCreatorImpl.java:358)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createFromMetadata(SchemaCreatorImpl.java:241)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:174)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:144)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:120)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:250)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:691)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1725)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1474)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1683)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:413)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1683)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1395)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:230)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:184)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:179)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:164)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:96)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:271)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:245)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4464)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:772)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:203)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:412)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:870)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:438)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:128)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:107)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:517)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:219)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:193)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:167)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at fr.kryptonn.nexus.auth.NexusAuthApplication.main(NexusAuthApplication.java:21)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "idx_expiry_date" already exists
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2734)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2421)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:372)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:518)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:435)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:357)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:342)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:318)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:313)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	... 132 common frames omitted
+2025-08-14 03:21:17.078 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists authorities 
+       add constraint FKk91upmbueyim93v469wj7b2qh 
+       foreign key (user_id) 
+       references users
+2025-08-14 03:21:17.080 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists email_verification_tokens 
+       add constraint FKi1c4mmamlb8keqt74k4lrtwhc 
+       foreign key (user_id) 
+       references users
+2025-08-14 03:21:17.081 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists refresh_tokens 
+       add constraint FK1lih5y2npsf8u5o3vhdb9y0os 
+       foreign key (user_id) 
+       references users
+2025-08-14 03:21:17.096 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-14 03:21:17.684 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-14 03:21:20.288 [main] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-08-14 03:21:20.839 [main] INFO  f.k.nexus.auth.config.JwtConfig - Configuration du JwtEncoder avec JWKSource
+2025-08-14 03:21:20.868 [main] INFO  f.k.nexus.auth.config.JwtConfig - JwtEncoder configuré avec succès
+2025-08-14 03:21:20.881 [main] INFO  f.k.nexus.auth.config.JwtConfig - Configuration du TokenGenerator
+2025-08-14 03:21:20.888 [main] INFO  f.k.nexus.auth.config.JwtConfig - TokenGenerator configuré avec succès
+2025-08-14 03:21:20.950 [main] INFO  f.k.nexus.auth.config.JwtConfig - Configuration du JwtDecoder avec JWKSource
+2025-08-14 03:21:21.030 [main] INFO  f.k.nexus.auth.config.JwtConfig - JwtDecoder configuré avec succès
+2025-08-14 03:21:22.146 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9000 (http) with context path '/'
+2025-08-14 03:21:22.165 [main] INFO  f.k.nexus.auth.NexusAuthApplication - Started NexusAuthApplication in 17.278 seconds (process running for 18.383)
+2025-08-14 03:21:22.170 [main] INFO  f.k.nexus.auth.NexusAuthApplication - Nexus Auth Server started successfully.
+2025-08-14 03:21:23.045 [scheduling-1] DEBUG org.hibernate.SQL - 
+    /* DELETE 
+    FROM
+        RefreshToken rt 
+    WHERE
+        rt.expiryDate < :now */ delete 
+    from
+        refresh_tokens rt1_0 
+    where
+        rt1_0.expiry_date<?
+2025-08-14 03:21:23.054 [scheduling-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:TIMESTAMP_UTC) <- [2025-08-14T01:21:22.955845083Z]
+2025-08-14 03:21:23.149 [scheduling-1] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.account_non_expired,
+        u1_0.account_non_locked,
+        u1_0.battlenet_access_token,
+        u1_0.battlenet_id,
+        u1_0.battlenet_token_expiry,
+        u1_0.created_at,
+        u1_0.credentials_non_expired,
+        u1_0.discord_access_token,
+        u1_0.discord_id,
+        u1_0.discord_refresh_token,
+        u1_0.discord_token_expiry,
+        u1_0.email,
+        u1_0.enabled,
+        u1_0.password,
+        u1_0.state_phase,
+        u1_0.tokens_revoked_at,
+        u1_0.updated_at 
+    from
+        users u1_0 
+    where
+        u1_0.discord_refresh_token is not null
+2025-08-14 03:21:28.800 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-14 03:21:28.802 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-08-14 03:21:28.830 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-14 03:21:28.832 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    set client_min_messages = WARNING
+2025-08-14 03:21:28.832 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    alter table if exists authorities 
+       drop constraint if exists FKk91upmbueyim93v469wj7b2qh
+2025-08-14 03:21:28.838 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    alter table if exists email_verification_tokens 
+       drop constraint if exists FKi1c4mmamlb8keqt74k4lrtwhc
+2025-08-14 03:21:28.839 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    alter table if exists refresh_tokens 
+       drop constraint if exists FK1lih5y2npsf8u5o3vhdb9y0os
+2025-08-14 03:21:28.840 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists authorities cascade
+2025-08-14 03:21:28.841 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists email_verification_tokens cascade
+2025-08-14 03:21:28.843 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists refresh_tokens cascade
+2025-08-14 03:21:28.844 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists revoked_tokens cascade
+2025-08-14 03:21:28.845 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists users cascade
+2025-08-14 03:21:28.849 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-08-14 03:21:28.852 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
