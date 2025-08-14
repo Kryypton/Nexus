@@ -52,11 +52,11 @@ public interface UserRepository extends JpaRepository<User, Long> { // ✅ Chang
             "WHERE a.authority = :authority")
     List<User> findByAuthority(@Param("authority") String authority);
 
-    Optional<User> findByDiscordId(String discordId);
+    Optional<User> findByDiscordAccount_Id(String discordId);
 
-    Optional<User> findByBattleNetId(String battleNetId);
+    Optional<User> findByBattleNetAccount_Id(String battleNetId);
 
-    List<User> findByDiscordRefreshTokenIsNotNull();
+    List<User> findByDiscordAccount_RefreshTokenIsNotNull();
 
     /**
      * ✅ Remplacé la requête native par JPQL pour éviter les problèmes de requête de comptage

@@ -78,26 +78,11 @@ public class User implements UserDetails {
     @Column(name = "tokens_revoked_at")
     private LocalDateTime tokensRevokedAt;
 
-    @Column(name = "discord_id")
-    private String discordId;
+    @Embedded
+    private DiscordAccount discordAccount;
 
-    @Column(name = "discord_access_token")
-    private String discordAccessToken;
-
-    @Column(name = "discord_refresh_token")
-    private String discordRefreshToken;
-
-    @Column(name = "discord_token_expiry")
-    private LocalDateTime discordTokenExpiry;
-
-    @Column(name = "battlenet_id")
-    private String battleNetId;
-
-    @Column(name = "battlenet_access_token")
-    private String battleNetAccessToken;
-
-    @Column(name = "battlenet_token_expiry")
-    private LocalDateTime battleNetTokenExpiry;
+    @Embedded
+    private BattleNetAccount battleNetAccount;
 
     @Override
     public String getUsername() {
@@ -153,5 +138,82 @@ public class User implements UserDetails {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getDiscordId() {
+        return discordAccount != null ? discordAccount.getId() : null;
+    }
+
+    public void setDiscordId(String discordId) {
+        if (discordAccount == null) {
+            discordAccount = new DiscordAccount();
+        }
+        discordAccount.setId(discordId);
+    }
+
+    public String getDiscordAccessToken() {
+        return discordAccount != null ? discordAccount.getAccessToken() : null;
+    }
+
+    public void setDiscordAccessToken(String token) {
+        if (discordAccount == null) {
+            discordAccount = new DiscordAccount();
+        }
+        discordAccount.setAccessToken(token);
+    }
+
+    public String getDiscordRefreshToken() {
+        return discordAccount != null ? discordAccount.getRefreshToken() : null;
+    }
+
+    public void setDiscordRefreshToken(String token) {
+        if (discordAccount == null) {
+            discordAccount = new DiscordAccount();
+        }
+        discordAccount.setRefreshToken(token);
+    }
+
+    public LocalDateTime getDiscordTokenExpiry() {
+        return discordAccount != null ? discordAccount.getTokenExpiry() : null;
+    }
+
+    public void setDiscordTokenExpiry(LocalDateTime expiry) {
+        if (discordAccount == null) {
+            discordAccount = new DiscordAccount();
+        }
+        discordAccount.setTokenExpiry(expiry);
+    }
+
+    public String getBattleNetId() {
+        return battleNetAccount != null ? battleNetAccount.getId() : null;
+    }
+
+    public void setBattleNetId(String id) {
+        if (battleNetAccount == null) {
+            battleNetAccount = new BattleNetAccount();
+        }
+        battleNetAccount.setId(id);
+    }
+
+    public String getBattleNetAccessToken() {
+        return battleNetAccount != null ? battleNetAccount.getAccessToken() : null;
+    }
+
+    public void setBattleNetAccessToken(String token) {
+        if (battleNetAccount == null) {
+            battleNetAccount = new BattleNetAccount();
+        }
+        battleNetAccount.setAccessToken(token);
+    }
+
+    public LocalDateTime getBattleNetTokenExpiry() {
+        return battleNetAccount != null ? battleNetAccount.getTokenExpiry() : null;
+    }
+
+    public void setBattleNetTokenExpiry(LocalDateTime expiry) {
+        if (battleNetAccount == null) {
+            battleNetAccount = new BattleNetAccount();
+        }
+        battleNetAccount.setTokenExpiry(expiry);
     }
 }
